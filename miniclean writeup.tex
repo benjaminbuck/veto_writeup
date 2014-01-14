@@ -1,30 +1,21 @@
-\documentclass[preprint,12pt]{elsarticle}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\journal{Nuclear Instruments and Methods A}
-\begin{document}
-\begin{frontmatter}
+\documentclass{JINST}
+
 \title{Design of the MiniCLEAN Dark Matter Search Veto Detector Subsystem}
-\author[mit]{R.~Abruzzio}
-\author[mit]{B.~Buck\corref{cor1}}
-\ead{bbuck@mit.edu}
-\author[lanl]{S.~Jaditz}
-\author[mit]{J.~Kelsey}
-\author[rhul]{J.~Monroe}
-\author[mit]{K.~Palladino}
-\address[lanl]{Los Alamos National Laboratory, Los Alamos, NM, USA}
-\address[mit]{Massachusetts Institute of Technology, Cambridge, MA, USA}
-\address[rhul]{Royal Holloway University of London, Egham, Surrey, UK}
-\cortext[cor1]{Corresponding Author}
-\begin{abstract}
-For the MiniCLEAN dark matter direct detection experiment in SNOLAB in Sudbury, Ontario, Canada, we designed the active muon veto subsystem.  The water-filled veto is instrumented with 48 PMTs, which are read out by front end electronics to time multiplex 48 photomultiplier channels into 6 digitizer channels, and provide an instantaneous hit sum across the sub-system (N-Hit) for the veto trigger.  The system has three primary components: an Amplifier Discriminator card, Summer cards, and the digitizer electronics.  This paper describes the mechanical and electronic design of the veto subsystem.
-\end{abstract}
+\author{R.~Abruzzio$^a$, B.~Buck$^a$\thanks{Corresponding author.}, S.~Jaditz$^b$, J.~Kelsey$^a$, J.~Monroe$^c$, K.~Palladino$^a$\\
+\llap{$^a$}Massachusetts Institute of Technology,\\
+	Cambridge, MA, USA\\
+	E-mail: \email{bbuck@mit.edu}\\
+\llap{$^b$}Los Alamos National Laboratory,\\
+	Los Alamos, NM, USA\\
+\llap{$^c$}Royal Holloway University of London,\\
+	Egham, Surrey, UK}
 
-\begin{keyword}
-dark matter direct detection \sep muon veto \sep electronics
-\end{keyword}
+\abstract{For the MiniCLEAN dark matter direct detection experiment in SNOLAB in Sudbury, Ontario, Canada, we designed the active muon veto subsystem.  The water-filled veto is instrumented with 48 PMTs, which are read out by front end electronics to time multiplex 48 photomultiplier channels into 6 digitizer channels, and provide an instantaneous hit sum across the sub-system (N-Hit) for the veto trigger.  The system has three primary components: an Amplifier Discriminator card, Summer cards, and the digitizer electronics.  This paper describes the mechanical and electronic design of the veto subsystem.}
 
-\end{frontmatter}
+\keywords{dark matter direct detection; muon veto; electronics}
+
+
+\begin{document}
 
 \section{Introduction}
 \label{Introduction}
@@ -76,7 +67,7 @@ simulation of 75 years of cosmogenic muon backgrounds, the estimated
 number of cosmogenic background induced scatters in the liquid Argon
 target with 20-100 keVee is $<$0.1/year.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3.5in]{graphics/miniclean_overview_drawing.pdf}
 \caption{Model of MiniCLEAN veto showing the shield tank, inner LAr detector, and veto PMTs.
@@ -108,7 +99,7 @@ SNO, and the optimum operating voltages were found to be consistent.
 An example PMT single p.e. charge spectrum at its operating voltage is
 shown in Figure~\ref{fig:pmt_spe_q}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4.5in]{graphics/PAYG_singlePE.pdf}
 \caption{Single photoelectron charge spectrum for PMT ID PAYG at operating voltage.  The data with a pulsed LED are shown in black, with statistical errors, noise data are shown in blue, and the fit model is shown in the yellow line.
@@ -152,7 +143,7 @@ above the maximum pressure in the MiniCLEAN veto tank) found no
 failures.  Therefore we concluded that further encapsulation of the
 SNO waterproof base enclosure was not necessary.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=2.5in,angle=270]{graphics/connectordrawing.pdf}
 \caption{TRIUMF connector assembly drawing.  Ites 1,2,4,6,7,10, and 11 were built or purchased to mate RG59 cable to the existing R1408 PMT jacks.
@@ -160,7 +151,7 @@ SNO waterproof base enclosure was not necessary.
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=2.5in]{graphics/connectorpic.pdf}
 \caption{TRIUMF connector for mating cable to the R1408 jack.  From top to bottom is shown the coupling nut, the plug body into which the cable is inserted, the tefon insulator which is also inserted into the plug body, and the pin with a stripped cable.
@@ -168,7 +159,7 @@ SNO waterproof base enclosure was not necessary.
 \end{center}
 \end{figure}
 
-%\begin{figure}[h]
+%\begin{figure}[ht]
 %\begin{center}
 %\includegraphics[width=6.5in]{Cable_Datasheet.pdf}
 %\caption{Belden data sheet for MiniCLEAN (and SNO and SuperK) veto cable.
@@ -197,23 +188,23 @@ also done with wet and dry rubber pads.  A complete assembly test of
 one string, consisting of four PMTs and associated hardware, dry, was done
 Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in,angle=270]{graphics/vetopmtmount.pdf}
+\includegraphics[width=2.5in,angle=0]{graphics/vetopmtmount.pdf}
 \caption{Veto PMT mount mechanical drawing.
 \label{fig:vetopmtmount}}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in,angle=270]{graphics/vetopmtstring.pdf}
+\includegraphics[width=2.5in,angle=0]{graphics/vetopmtstring.pdf}
 \caption{Veto PMT string mechanical drawing.
 \label{fig:vetopmtstring}}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=2.5in]{graphics/vetopmtmountpic.pdf}
 \caption{Veto PMT shown in mounting hardware.  The top picture also shows the part of the string which connects to the veto tank lid.
@@ -221,7 +212,7 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=2.5in]{graphics/vetopmtstringpic.pdf}
 \caption{One complete veto PMT string shown in mounting hardware.
@@ -248,7 +239,7 @@ electronics are part of the Summer card described
 Section~\ref{sec:Sum}.  The CAEN DAQ is described further
 in~\cite{ref:gastler_thesis}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5in, keepaspectratio=true, trim=1.25in 5.75in 0.5in 2in, clip=true]{graphics/block}
 \caption{Block Diagram of MiniCLEAN Veto Electronics}
@@ -268,7 +259,7 @@ voltage line.  On the Amplifier Discriminator board each channel has
 an amplifier input capacitively coupled to the bias voltage line.  The
 PMT bias scheme is shown in Figure~\ref{fig:bias}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3in, keepaspectratio=true, trim=1.5in 5.5in 2in 1.25in, clip=true]{graphics/bias}
 \caption{Bias-T Schematic}
@@ -361,7 +352,7 @@ fed by a common bipolar supply with ground between $\pm$ 7V to $\pm$
 rail and 250mA on the negative rail.  The schematic for the Summer
 board is shown in Figure~\ref{fig:boards}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5in, keepaspectratio=true]{graphics/boards}
 \caption{Amplifier Discriminator Board (left) and Summer Board (right)}
