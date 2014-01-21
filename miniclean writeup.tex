@@ -145,7 +145,7 @@ SNO waterproof base enclosure was not necessary.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in,angle=270]{graphics/connectordrawing.pdf}
+\includegraphics[width=2.5in,page=13]{graphics/snoConnectorDrawings.pdf}
 \caption{TRIUMF connector assembly drawing.  Ites 1,2,4,6,7,10, and 11 were built or purchased to mate RG59 cable to the existing R1408 PMT jacks.
 \label{fig:connectordrawing}}
 \end{center}
@@ -190,7 +190,7 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in,angle=0]{graphics/vetopmtmount.pdf}
+\includegraphics[width=4in,angle=0]{graphics/vetopmtmount.pdf}
 \caption{Veto PMT mount mechanical drawing.
 \label{fig:vetopmtmount}}
 \end{center}
@@ -198,7 +198,7 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in,angle=0]{graphics/vetopmtstring.pdf}
+\includegraphics[width=4in,angle=0]{graphics/vetopmtstring.pdf}
 \caption{Veto PMT string mechanical drawing.
 \label{fig:vetopmtstring}}
 \end{center}
@@ -206,15 +206,16 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in]{graphics/vetopmtmountpic.pdf}
-\caption{Veto PMT shown in mounting hardware.  The top picture also shows the part of the string which connects to the veto tank lid.
+		\includegraphics[width=2.5in]{graphics/singlepmtmounted1.JPG}
+		\includegraphics[width=2.5in]{graphics/singlepmtmounted2.JPG}
+\caption{Veto PMT shown in mounting hardware.
 \label{fig:vetopmtmountpic}}
 \end{center}
 \end{figure}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in]{graphics/vetopmtstringpic.pdf}
+\includegraphics[width=2.5in]{graphics/pmtstring.jpg}
 \caption{One complete veto PMT string shown in mounting hardware.
 \label{fig:vetopmtstringpic}}
 \end{center}
@@ -242,8 +243,8 @@ in~\cite{ref:gastler_thesis}.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5in, keepaspectratio=true, trim=1.25in 5.75in 0.5in 2in, clip=true]{graphics/block}
-\caption{Block Diagram of MiniCLEAN Veto Electronics}
-\label{fig:block_diagram}
+\caption{Block Diagram of MiniCLEAN Veto Electronics
+\label{fig:block_diagram}}
 \end{center}
 \end{figure}
 
@@ -262,8 +263,8 @@ PMT bias scheme is shown in Figure~\ref{fig:bias}.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3in, keepaspectratio=true, trim=1.5in 5.5in 2in 1.25in, clip=true]{graphics/bias}
-\caption{Bias-T Schematic}
-\label{fig:bias}
+\caption{Bias-T Schematic
+\label{fig:bias}}
 \end{center}
 \end{figure}
 
@@ -350,13 +351,23 @@ Each board has one +5V supply and one -5V supply.  The regulators are
 fed by a common bipolar supply with ground between $\pm$ 7V to $\pm$
 12V.  The nominal values for current draw are 250mA on the positive
 rail and 250mA on the negative rail.  The schematic for the Summer
-board is shown in Figure~\ref{fig:boards}.
+board is shown in Figure~\ref{fig:boards}, an example test pulse run
+through the summer board is shown in Figure~\ref{fig:summerpulse}.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseinput.png}
+		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseoutput.png}
+		\caption{Input (left) and output (right) to the Summer Board measured with a test pulse generator
+		\label{fig:summerpulse}}
+	\end{center}
+\end{figure}
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5in, keepaspectratio=true]{graphics/boards}
-\caption{Amplifier Discriminator Board (left) and Summer Board (right)}
-\label{fig:boards}
+\caption{Amplifier Discriminator Board (left) and Summer Board (right)
+\label{fig:boards}}
 \end{center}
 \end{figure}
 
@@ -387,12 +398,24 @@ During testing we were able to demonstrate the system working
 properly.  We were able to see simulated events pushed into the system
 and see the N-Hit signal increase proportionally to the number of PMTs
 which were hit.  We could observe the output signals on the time
-multiplexed outputs from the summer boards.  JRM-- I THINK WE NEED A FIGURE THAT SHOWS THE OUTPUT SIGNALS MULTIPLEXED FROM THE TESTING.  Once operational, the
+multiplexed outputs from the summer boards.  Figure~\ref{fig:multipulse} shows the output from a system test using a pulse generator.
+Once operational, the
 full system will multiplex 48 PMT signals into 6 digitizer channels
 and provide a system wide N-Hit sum.  The system wide N-Hit will
 provide the veto trigger to the MiniCLEAN DAQ.  The system is now at
 SNOLAB ready for implementation in the experiment.
 
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[height=3in, keepaspectratio=true]{graphics/delaypulse.png}
+		\caption{Oscillicope capture from the output of a Summer Board.  Eight channels
+			pulsed with a 10mV synchronous pulse into the Amplifier Discriminator Board.  The amplified
+			signals are routed through the delay lines into the Summer Board.  The top trace is
+			the output of the Summer Board.  The bottom trace is the N-Hit sum output from the
+		Amplifier Discriminator Board, used as a trigger
+	\label{fig:multipulse}}
+	\end{center}
+\end{figure}
 
 \begin{thebibliography}{999}
 
