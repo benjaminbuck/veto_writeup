@@ -10,7 +10,15 @@
 \llap{$^c$}Royal Holloway University of London,\\
 	Egham, Surrey, UK}
 
-\abstract{For the MiniCLEAN dark matter direct detection experiment in SNOLAB in Sudbury, Ontario, Canada, we designed the active muon veto subsystem.  The water-filled veto is instrumented with 48 PMTs, which are read out by front end electronics to time multiplex 48 photomultiplier channels into 6 digitizer channels, and provide an instantaneous hit sum across the sub-system (N-Hit) for the veto trigger.  The system has three primary components: an Amplifier Discriminator card, Summer cards, and the digitizer electronics.  This paper describes the mechanical and electronic design of the veto subsystem.}
+\abstract{For the MiniCLEAN dark matter direct detection experiment in SNOLAB
+in Sudbury, Ontario, Canada, we designed the active muon veto subsystem.  The
+water-filled veto is instrumented with 48 PMTs, which are read out by front
+end electronics to time multiplex 48 photomultiplier channels into 6
+digitizer channels, and provide an instantaneous hit sum across the
+sub-system (N-Hit) for the veto trigger.  The system has three primary
+components: an Amplifier Discriminator card, Summer cards, and the digitizer
+electronics.  This paper describes the mechanical and electronic design of
+the veto subsystem.}
 
 \keywords{dark matter direct detection; muon veto; electronics}
 
@@ -19,19 +27,45 @@
 
 \section{Introduction}
 \label{Introduction}
-The MiniCLEAN experiment is searching for Weakly Interacting Massive Particle (WIMP) dark matter using a liquid Argon target.  The MiniCLEAN detector physics goals and design are described in~\cite{ref:miniclean_physics}.  The detector is located 6800 feet underground in the Cube Hall in SNOLAB in Sudbury, Ontario, Canada.  The detector consists of a spherical stainless steel inner vessel containing liquid argon or neon surrounded by 92 cryogenic photomultiplier tubes (PMTs) inside an outer vacuum vessel. The outer vessel is located within a water tank, shown in Figure~\ref{fig:veto_geom}, which provides additional background shielding as well as a veto function for external particles incident on the argon detector volume.  
+The MiniCLEAN experiment is searching for Weakly Interacting Massive Particle
+(WIMP) dark matter using a liquid Argon target.  The MiniCLEAN detector
+physics goals and design are described in~\cite{ref:miniclean_physics}.  The
+detector is located 6800 feet underground in the Cube Hall in SNOLAB in
+Sudbury, Ontario, Canada.  The detector consists of a spherical stainless
+steel inner vessel containing liquid argon or neon surrounded by 92 cryogenic
+photomultiplier tubes (PMTs) inside an outer vacuum vessel. The outer vessel
+is located within a water tank, shown in Figure~\ref{fig:veto_geom}, which
+provides additional background shielding as well as a veto function for
+external particles incident on the argon detector volume.  
 
-The veto water shields the Argon target from low energy neutrons and gamma rays from radioactivity in the surrounding cavern rock and from cosmic muons which penetrate the rock overburden to detector depth.  These muons can create high energy neutrons, which may mimic the WIMP signal.  Therefore, 48 PMTs inside the water volume are used to detect Cherenkov light produced by muons transiting the water, and trigger a veto signal.  From a simulation of the cosmogenic muon flux, using the SNO measurement of 3.31$\pm$0.01(stat.)$\pm$0.09(sys.)$\times$10$^{-10}$ $\mu$/cm$^2$/s ~\cite{ref:sno_muon_flux}, and the energy and angular distribution parameterization from~\cite{ref:mei_and_hime}, the expected total muon flux through the MiniCLEAN veto tank water is 9.8 muons/day.  
+The veto water shields the Argon target from low energy neutrons and gamma
+rays from radioactivity in the surrounding cavern rock and from cosmic muons
+which penetrate the rock overburden to detector depth.  These muons can
+create high energy neutrons, which may mimic the WIMP signal.  Therefore, 48
+PMTs inside the water volume are used to detect Cherenkov light produced by
+muons transiting the water, and trigger a veto signal.  From a simulation of
+the cosmogenic muon flux, using the SNO measurement of
+3.31$\pm$0.01(stat.)$\pm$0.09(sys.)$\times$10$^{-10}$ $\mu$/cm$^2$/s
+~\cite{ref:sno_muon_flux}, and the energy and angular distribution
+parameterization from~\cite{ref:mei_and_hime}, the expected total muon flux
+through the MiniCLEAN veto tank water is 9.8 muons/day.  
 
 The MiniCLEAN Muon Veto Subsystem consists of:
 \begin{itemize}
 \item 48 PMTs mounted on 12 strings of 4 PMTs around the inner diameter of the MiniCLEAN water shield tank;
 \item high voltage power supply for the PMTs; and,
-\item veto PMT signal electronics, which include custom Amplifier Discriminator boards, custom Summer boards, and one CAEN V1720 digitizer board for data acquisition.  
+\item veto PMT signal electronics, which include custom Amplifier Discriminator boards, custom Summer boards, and one CAEN V1720 digitizer board for data acquisition.
 \end{itemize}
-The custom electronics bias the PMTs, time multiplex 8 PMT channels into a single digitizer channel, and generate a signal proportional to the number of PMTs above threshold at any moment, which is used as the veto trigger to the DAQ.  An overview of the system is shown in Figure~\ref{fig:block_diagram}.
+The custom electronics bias the PMTs, time multiplex 8 PMT channels into a
+single digitizer channel, and generate a signal proportional to the number
+of PMTs above threshold at any moment, which is used as the veto trigger to
+the DAQ.  An overview of the system is shown in
+Figure~\ref{fig:block_diagram}.
 
-This paper describes the mechanical and electrical design of the veto subsystem.  The mechanical system is described in Section~\ref{sec:subsystem_design}, and the custom electronics are described in Section~\ref{sec:electronics_design}.
+This paper describes the mechanical and electrical design of the veto
+subsystem.  The mechanical system is described in
+Section~\ref{sec:subsystem_design}, and the custom electronics are
+described in Section~\ref{sec:electronics_design}.
 
 
 \section{Mechanical Design of the MiniCLEAN Muon Veto Subsystem}
@@ -127,7 +161,10 @@ The RG-59 coaxial cable is the same cable used by SuperK and SNO,
 manufactured by Belden.  The cable is flooded, with a waterproof
 jacket, and rated to 2.3 kV.  The MiniCLEAN veto cable was purchased
 from Belden as a custom production run.  
-%As in SNO, this cable is not rated to the Canadian Standards Association FT4 and Low Smoke Zero Halogen (LSZH) standard.  To comply with these standards in the region where the cable is not submerged in the veto tank water, we will do the same thing as SNO and bundle the cable on deck in FT4 heatshrink.
+As in SNO, this cable is not rated to the Canadian Standards Association
+FT4 and Low Smoke Zero Halogen (LSZH) standard.  To comply with these
+standards in the region where the cable is not submerged in the veto tank
+water, the cable will be bundled and covered in FT4 heat-shrink.
 
 The SNO PMTs come with waterproof base enclosures, consisting of a
 plastic cylinder filled with gel.  All of the PMTs were wet tested at
@@ -215,7 +252,7 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.5in]{graphics/pmtstring.jpg}
+\includegraphics[width=2.5in]{graphics/pmtstring.JPG}
 \caption{One complete veto PMT string shown in mounting hardware.
 \label{fig:vetopmtstringpic}}
 \end{center}
@@ -225,7 +262,10 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 \section{Electronics Design of the MiniCLEAN Veto Subsystem}
 \label{sec:electronics_design}
 %
-The electronic components of the veto system are the PMT high voltage supply, the PMT signal electronics, and the data acquisition electronics.  A schematic showing the system outline is shown in Figure~\ref{fig:block_diagram}, and the component data sheets are catalogued in~\cite{ref:vetocomponentdatasheets}.
+The electronic components of the veto system are the PMT high voltage
+supply, the PMT signal electronics, and the data acquisition
+electronics.  A schematic showing the system outline is shown in
+Figure~\ref{fig:block_diagram}, and the component data sheets are catalogued in~\cite{ref:vetocomponentdatasheets}.
 
 The 48 veto PMTs use 6 channels of one 12-channel card of the
 MiniCLEAN inner LAr detector PMT high voltage supply (1461 VISyN),
@@ -311,7 +351,8 @@ eight PMT connections.  These PMT connections attach on the left side
 of the board with short HV insulated wire pig tails.  On the right
 side of the board 9 SMA connectors are board mounted.  The SMA
 connectors provide the eight signal outputs to the delay lines and the
-one N-Hit sum signal.  The schematic for the Amplifier Discriminator board is shown in Figure~\ref{fig:boards}.
+one N-Hit sum signal.  The schematic for the Amplifier Discriminator
+board is shown in Figure~\ref{fig:boards}.
 
 \subsection{Delay Lines}
 \label{sec:Delay}
@@ -365,7 +406,7 @@ through the summer board is shown in Figure~\ref{fig:summerpulse}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=5in, keepaspectratio=true]{graphics/boards}
+\includegraphics[width=5in, keepaspectratio=true]{graphics/boards.JPG}
 \caption{Amplifier Discriminator Board (left) and Summer Board (right)
 \label{fig:boards}}
 \end{center}
@@ -398,7 +439,8 @@ During testing we were able to demonstrate the system working
 properly.  We were able to see simulated events pushed into the system
 and see the N-Hit signal increase proportionally to the number of PMTs
 which were hit.  We could observe the output signals on the time
-multiplexed outputs from the summer boards.  Figure~\ref{fig:multipulse} shows the output from a system test using a pulse generator.
+multiplexed outputs from the summer boards.  Figure~\ref{fig:multipulse}
+shows the output from a system test using a pulse generator.
 Once operational, the
 full system will multiplex 48 PMT signals into 6 digitizer channels
 and provide a system wide N-Hit sum.  The system wide N-Hit will
