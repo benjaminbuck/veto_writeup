@@ -1,7 +1,8 @@
 \documentclass{JINST}
+\pdfoutput=1
 
-\title{Design of the MiniCLEAN Dark Matter Search Veto Detector Subsystem}
-\author{R.~Abruzzio$^a$, B.~Buck$^a$\thanks{Corresponding author.}, S.~Jaditz$^b$, J.~Kelsey$^a$, J.~Monroe$^c$, K.~Palladino$^a$\\
+\title{Design of the MiniCLEAN dark matter search veto detector subsystem}
+\author{Robert~Abruzzio$^a$, Benjamin~Buck$^a$\thanks{Corresponding author.}, Stephen~Jaditz$^b$, James~Kelsey$^a$, Jocelyn~Monroe$^c$, Kimberly~Palladino$^a$\\
 \llap{$^a$}Massachusetts Institute of Technology,\\
 	Cambridge, MA, USA\\
 	E-mail: \email{bbuck@mit.edu}\\
@@ -20,7 +21,7 @@ components: an Amplifier Discriminator card, Summer cards, and the digitizer
 electronics.  This paper describes the mechanical and electronic design of
 the veto subsystem.}
 
-\keywords{dark matter direct detection; muon veto; electronics}
+\keywords{Dark Matter detectors, Photon detectors for UV, visible and IR photons (vacuum), Front-end electronics for detector readout}
 
 
 \begin{document}
@@ -28,7 +29,7 @@ the veto subsystem.}
 \section{Introduction}
 \label{Introduction}
 The MiniCLEAN experiment is searching for Weakly Interacting Massive Particle
-(WIMP) dark matter using a liquid Argon target.  The MiniCLEAN detector
+(WIMP) dark matter using a liquid argon target.  The MiniCLEAN detector
 physics goals and design are described in~\cite{ref:miniclean_physics}.  The
 detector is located 6800 feet underground in the Cube Hall al SNOLAB in
 Sudbury, Ontario, Canada.  The detector consists of a spherical stainless
@@ -38,7 +39,7 @@ is located within a water tank, shown in Figure~\ref{fig:veto_geom}, which
 provides additional background shielding as well as a veto function for
 external particles incident on the argon detector volume.  
 
-The veto water shields the Argon target from low energy neutrons and gamma
+The veto water shields the argon target from low energy neutrons and gamma
 rays from radioactivity in the surrounding cavern rock and from cosmic muons
 which penetrate the rock overburden to detector depth.  These muons can
 create high energy neutrons, which may mimic the WIMP signal.  Therefore, 48
@@ -68,11 +69,11 @@ Section~\ref{sec:subsystem_design}, and the custom electronics are
 described in Section~\ref{sec:electronics_design}.
 
 
-\section{Mechanical Design of the MiniCLEAN Muon Veto Subsystem}
+\section{Mechanical design of the MiniCLEAN muon veto subsystem}
 \label{sec:subsystem_design}
 %
 The water tank for the MiniCLEAN veto is a bottomless silo, with
-radius 2.8 m and height 7.9 m. These dimensions provide 1.5 m or
+radius 2.8~m and height 7.9~m. These dimensions provide 1.5~m or
 greater water thickness between the cavern air and outer vessel. The
 veto is lined by a highly-reflective waterproof bladder, with four
 holes in the bottom through which the supports for the main detector
@@ -89,17 +90,17 @@ The simulation of this geometry and the R1408 PMT response (described
 in Section~\ref{sec:pmts} results in an average of approximately 25
 photo-electrons (p.e.) detected per PMT per muon in the water.  The
 average time spread between first and last detected p.e. of the signal
-on a given PMT is $\sim$15 ns.  The electronics described in
-Section~\ref{sec:Amp-Disc} are designed for a 0.25 p.e. threshold (2.5
-mV) per PMT; requiring a coincidence of at least 2 PMTs above this
+on a given PMT is $\sim$15~ns.  The electronics described in
+Section~\ref{sec:Amp-Disc} are designed for a 0.25~p.e. threshold (2.5~mV)
+per PMT; requiring a coincidence of at least 2 PMTs above this
 threshold (N-Hit$>$2) results in an efficiency of 0.999 giving 3
 un-vetoed muons per year.  For comparison, the simulated efficiency
 drops to 0.99 if the N-Hit threshold is 1 p.e. and the veto trigger
-requirement is N-Hit$>$8.  The un-vetoed muons traverse less than 5 cm
+requirement is N-Hit$>$8.  The un-vetoed muons traverse less than 5~cm
 of water, clipping the corners of the veto tank volume.  From a
 simulation of 75 years of cosmogenic muon backgrounds, the estimated
-number of cosmogenic background induced scatters in the liquid Argon
-target with 20-100 keVee is $<$0.1/year.
+number of cosmogenic background induced scatters in the liquid argon
+target with 20-100~keVee is $<$0.1/year.
 
 \begin{figure}[ht]
 \begin{center}
@@ -109,26 +110,26 @@ target with 20-100 keVee is $<$0.1/year.
 \end{center}
 \end{figure}
 
-\subsection{PMTs, Connectors, Cables}
+\subsection{PMTs, connectors, cables}
 \label{sec:pmts}
 %
 66 R1408 PMTs were made available from SNO for use in the MiniCLEAN
 veto. The gain and dark rates of these PMTs were measured as a
 function of bias voltage in a PMT test stand at Los Alamos National
 Laboratory.  We used a CAEN V1720 digitizer with the MiniCLEAN DAQ
-software, DCDAQ, for data acquisition. PMTs were conditioned at 2100 V
+software, DCDAQ, for data acquisition. PMTs were conditioned at 2100~V
 for 12 hours. After this we measured the single photoelectron gain as a
 function of bias voltage using a blue LED flashed at low
 intensity, so that PMT occupancy was several percent. Final gain and
 dark rate measurements were made in a similar test stand at MIT, and
 48 PMTs plus 5 spares were selected to use in the veto.  The selection
 criteria was chosen to minimize dark rate.  We required the rate of pulses with
-$>$3 mV (approximately 0.3 p.e.) to be less than 3000 Hz in the
+$>$3~mV (approximately 0.3~p.e.) to be less than 3000 Hz in the
 absence of a light source.  Operating voltages were chosen to gain
 match the PMTs for an anode gain of 1$\times$10$^7$; the range of
-operating voltages is 1800-2300V.  A typical single p.e. pulse charge
-is $\sim$1 pC, with pulse amplitude of $\sim$10 mV and pulse full width of
-$\sim$10 ns.  These PMTs were also qualified in tests done many years ago for
+operating voltages is 1800-2300~V.  A typical single p.e. pulse charge
+is $\sim$1~pC, with pulse amplitude of $\sim$10~mV and pulse full width of
+$\sim$10~ns.  These PMTs were also qualified in tests done many years ago for
 SNO, and the optimum operating voltages were found to be consistent.
 An example PMT single p.e. charge spectrum at its operating voltage is
 shown in Figure~\ref{fig:pmt_spe_q}.
@@ -157,11 +158,9 @@ tests.  These experiences were used to modify the cable assembly
 procedure after which no cable connectors or PMTs were found to fail
 wet tests.
 
-%Need to insert something like "We used Belden cable # XXXXX which was the same use by other experiments, namely SuperK and SNO..."
-The RG-59 coaxial cable is the same cable used by SuperK and SNO, !!!
-manufactured by Belden.  The cable is flooded, has a waterproof
-jacket, and is rated to 2.3 kV.  The MiniCLEAN veto cable was purchased
-from Belden as a custom production run.  
+The connection to the PMTs uses a custom cable, Belden part number YR29304 Rev 2.  The cable is a
+RG-59 coaxial cable and is the same cable used by SuperK and SNO
+The cable is flooded, has a waterproof jacket, and is rated to 2.3~kV.
 As in SNO, this cable is not rated to the Canadian Standards Association
 FT4 and Low Smoke Zero Halogen (LSZH) standard.  To comply with these
 standards in the region where the cable is not submerged in the veto tank
@@ -206,20 +205,20 @@ SNO waterproof base enclosure was not necessary.
 %\end{figure}
 
 
-\subsection{Mechanical Hardware}
+\subsection{Mechanical hardware}
 %
 The PMT support structures attach the PMTs to poles or
 ``strings'' which attach to the veto tank lid.  These have been built at
-MIT Bates Laboratory. Drawings of the 316L stainless steel
-mount and string are shown in Figures~\ref{fig:vetopmtmount} and
-\ref{fig:vetopmtstring}, with pictures of the hardware in
+MIT Bates Laboratory. A drawing of the 316L stainless steel
+mount is shown in Figure~\ref{fig:vetopmtmount}
+with pictures of the hardware in
 Figure~\ref{fig:vetopmtmountpic}. The Buna-N rubber pads contacting
 the base enclosure and bulb accommodate the variations in dimensions
 across the set of PMTs. The base enclosures' and bulbs' diameters were
 measured to vary between 3.00 and 3.34 inches and between 7.91 and
 8.02 inches. The rubber mounting pads were all fit by hand to each PMT
 at Bates before shipment to SNOLab and tested with a load of twice
-the buoyant force (maximum 8 lbs/PMT) to try to dislodge the PMT from
+the buoyant force (maximum 8~lbs/PMT) to try to dislodge the PMT from
 the mount.  This procedure will be repeated during assembly to verify
 the mechanical stability of each veto PMT in its mount.  Tests were
 also done with wet and dry rubber pads.  A complete assembly test of
@@ -234,13 +233,13 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 \end{center}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=4in,angle=0]{graphics/vetopmtstring.pdf}
-\caption{Veto PMT string mechanical drawing.
-\label{fig:vetopmtstring}}
-\end{center}
-\end{figure}
+%\begin{figure}[ht]
+%\begin{center}
+%\includegraphics[width=4in,angle=0]{graphics/vetopmtstring.pdf}
+%\caption{Veto PMT string mechanical drawing.
+%\label{fig:vetopmtstring}}
+%\end{center}
+%\end{figure}
 
 \begin{figure}[ht]
 \begin{center}
@@ -260,7 +259,7 @@ Bates.  This is shown in Figure~\ref{fig:vetopmtstringpic}.
 \end{figure}
 
 
-\section{Electronics Design of the MiniCLEAN Veto Subsystem}
+\section{Electronics design of the MiniCLEAN veto subsystem}
 \label{sec:electronics_design}
 %
 The electronic components of the veto system are the PMT high voltage
@@ -289,7 +288,7 @@ in~\cite{ref:gastler_thesis}.
 \end{center}
 \end{figure}
 
-\subsection{Amplifier Discriminator Board}
+\subsection{Amplifier discriminator board}
 \label{sec:Amp-Disc}
 %
 The Amplifier Discriminator Board is the front end electronics board.
@@ -341,17 +340,17 @@ a differential amplifier and output using a transformer as a single
 ended signal, the "N-Hit sum" for those 8 channels.
 
 The Amplifier Discriminator Board has local linear power regulation.
-Each board has two +5V supplies, one -5V supply, and one +3V supply.
-The CFA runs on the +5V and -5V supplies.  The comparator runs on the
-second +5V supply and the +3V supply (necessary for PECL output).
-There are two +5V supplies in order to isolate the output supply for
+Each board has two +5~V supplies, one -5~V supply, and one +3~V supply.
+The CFA runs on the +5~V and -5~V supplies.  The comparator runs on the
+second +5~V supply and the +3~V supply (necessary for PECL output).
+There are two +5~V supplies in order to isolate the output supply for
 the comparator in order to reduce cross talk.  The regulators are fed
-by a common bipolar supply and ground nominally at $\pm$ 9V.  The
-nominal values for current draw are 500mA on the positive rail and
-250mA on the negative rail.
+by a common bipolar supply and ground nominally at $\pm$9~V.  The
+nominal values for current draw are 500~mA on the positive rail and
+250~mA on the negative rail.
 
 The board is constructed with 4 copper layers and standard FR4
-substrate material, with 0.062" thickness.  It is mounted on a piece
+substrate material, with 0.062 inch thickness.  It is mounted on a piece
 of FR4 to protect HV nets on the bottom of the board from arcing and
 to fit it into a 6U VME style crate.  9 SHV connectors are mounted on
 a front panel connected to the FR4 and provide the HV Bias Input and
@@ -362,28 +361,41 @@ connectors provide the eight signal outputs to the delay lines and the
 one N-Hit sum signal.  The a photo of the Amplifier Discriminator
 board is shown in Figure~\ref{fig:boards}.
 
-\subsection{Delay Lines}
+\subsection{Delay lines}
 \label{sec:Delay}
 %
 The delay lines connect from the Amplifier Discriminator boards to the
-Summer Boards.  They are designed to delay the signals 50 ns to 350
-ns.  Since the signal pulses are expected to be short in
-comparison to the 50 ns delay window, delaying the signals and summing
+Summer Boards.  They are designed to delay the signals 50~ns to 350~ns.
+Since the signal pulses are expected to be short in
+comparison to the 50~ns delay window, delaying the signals and summing
 them together has the effect of time multiplexing the signals.  The
 delay lines are made of different lengths of Belden 9310 cable fitted
 with male SMA connectors.  The cable was chosen for its low
 attenuation, slow signal propagation speed, and small bend radius.
-There are 7 different lengths ranging form 32' to 224', with every 32'
-equating to about 50 ns of delay.  These are coiled inside a metal box
+There are 7 different lengths ranging form 32~ft to 224~ft, with every 32~ft
+equating to about 50~ns of delay.  These are coiled inside a metal box
 with pig tails to connect to the Amplifier Discriminator Boards and
 the Summer Boards.  The metal box satisfies fire protection concerns
 in the mine, as the Belden 9310 also does not meet the FT4 and LSZH
 requirements. There are two sets of each of the seven lengths in each box.
-One of the signals has a $\sim$0 ns delay and is connected from the
+One of the signals has a $\sim$0~ns delay and is connected from the
 Amplifier Discriminator card to the summer card with a very short
-jumper cable.
+jumper cable.  Figure~\ref{fig:multipulse} shows the time multiplexed
+of 8 channels fed with a synchronous pulse.
 
-\subsection{Summer Board}
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[height=2in, keepaspectratio=true]{graphics/delaypulse.png}
+		\caption{Oscillicope capture from the output of a Summer Board.  Eight channels
+			pulsed with a 10~mV synchronous pulse into the Amplifier Discriminator Board.  The amplified
+			signals are routed through the delay lines into the Summer Board.  The top trace is
+			the output of the Summer Board.  The bottom trace is the N-Hit sum output from the
+		Amplifier Discriminator Board, used as a trigger
+	\label{fig:multipulse}}
+	\end{center}
+\end{figure}
+
+\subsection{Summer board}
 \label{sec:Sum}
 %
 The Summer Board sums the analog channels after they have been
@@ -397,10 +409,10 @@ configured as an analog summing node.  This outputs through a series
 resistor to an female MCX connector.  A short jumper cable connects
 the Summer Board output to the digitizer input.  Like the Amplifier
 Discriminator Board, the Summer Board has local power regulation.
-Each board has one +5V supply and one -5V supply.  The regulators are
-fed by a common bipolar supply with ground between $\pm$ 7V to $\pm$
-12V.  The nominal values for current draw are 250mA on the positive
-rail and 250mA on the negative rail.  A photo of the Summer
+Each board has one +5~V supply and one -5~V supply.  The regulators are
+fed by a common bipolar supply with ground between $\pm$7~V to $\pm$12~V.
+The nominal values for current draw are 250~mA on the positive
+rail and 250~mA on the negative rail.  A photo of the Summer
 board is shown in Figure~\ref{fig:boards}, an example test pulse run
 through the summer board is shown in Figure~\ref{fig:summerpulse}.
 
@@ -415,20 +427,20 @@ through the summer board is shown in Figure~\ref{fig:summerpulse}.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=5in, keepaspectratio=true]{graphics/boards.JPG}
+\includegraphics[width=4in, keepaspectratio=true]{graphics/boards.JPG}
 \caption{Amplifier Discriminator Board (left) and Summer Board (right)
 \label{fig:boards}}
 \end{center}
 \end{figure}
 
-\subsection{Housing and Assembly}
+\subsection{Housing and assembly}
 \label{sec:Housing}
 %
 The electronics are housed in a rack which holds a crate for the
 electronics, a fan unit for cooling, a power supply unit, and all of
-the delay lines.  The power supply module provides $\pm$ 9V up to
-130W.  Estimated total power draw is 72W.  The power supply uses two
-discrete 9V switching power supplies which provide +9, 0, and -9 V
+the delay lines.  The power supply module provides $\pm$9~V up to
+130~W.  Estimated total power draw is 72~W.  The power supply uses two
+discrete 9~V switching power supplies which provide +9~V, 0~V, and -9~V
 power rails running on the back of the rack.  Connectors are attached
 to these rails and insert into each of the electronics boards.  Each
 of the components was tested individually at MIT.  Amplifier
@@ -448,44 +460,30 @@ During testing we were able to demonstrate the system working
 properly.  We were able to see simulated events pushed into the system
 and see the N-Hit signal increase proportionally to the number of PMTs
 which were hit.  We could observe the output signals on the time
-multiplexed outputs from the summer boards.  Figure~\ref{fig:multipulse}
-shows the output from a system test using a pulse generator.
+multiplexed outputs from the summer boards (Figure~\ref{fig:multipulse}.)
 Once operational, the
 full system will multiplex 48 PMT signals into 6 digitizer channels
 and provide a system wide N-Hit sum.  The system wide N-Hit will
 provide the veto trigger to the MiniCLEAN DAQ.  The system is now at
 SNOLAB ready for implementation in the experiment.
 
-\begin{figure}[ht]
-	\begin{center}
-		\includegraphics[height=3in, keepaspectratio=true]{graphics/delaypulse.png}
-		\caption{Oscillicope capture from the output of a Summer Board.  Eight channels
-			pulsed with a 10mV synchronous pulse into the Amplifier Discriminator Board.  The amplified
-			signals are routed through the delay lines into the Summer Board.  The top trace is
-			the output of the Summer Board.  The bottom trace is the N-Hit sum output from the
-		Amplifier Discriminator Board, used as a trigger
-	\label{fig:multipulse}}
-	\end{center}
-\end{figure}
 
 \begin{thebibliography}{999}
 
 \bibitem{ref:miniclean_physics} 
-M. Ronquest, The MiniCLEAN single-phase noble liquid dark matter experiment, IEEE Nucl.Sci.Symp.Conf.Rec. (2010) 1866-1872 \\
+	M. Ronquest, \emph{The MiniCLEAN single-phase noble liquid dark matter experiment}, IEEE Nucl.Sci.Symp.Conf.Rec. (2010) 1866-1872 \\
 
 \bibitem{ref:sno_muon_flux} 
-B. Aharmim {\it et al.}, Measurement of the Cosmic Ray and Neutrino-Induced Muon Flux at the Sudbury Neutrino Observatory,'' Phys. Rev. D80 (2009) 012001 \\
+	B. Aharmim {\it et al.}, \emph{Measurement of the cosmic ray and neutrino-induced muon flux at the Sudbury Neutrino Observatory},'' Phys. Rev. D80 (2009) 012001 \\
 
 \bibitem{ref:mei_and_hime} 
-D. Mei and A. Hime, Muon-induced background study for underground laboratories, Phys. Rev. D73 (2006) 053004
+	D. Mei and A. Hime, \emph{Muon-induced background study for underground laboratories}, Phys. Rev. D73 (2006) 053004
 
 \bibitem{ref:geant4} 
-J. Allison {\it et al.}, Geant4 Developments and Applications, IEEE Transactions on Nuclear Science 53 No. 1 (2006) 270-278 \\
+	J. Allison {\it et al.}, \emph{Geant4 developments and applications}, IEEE Transactions on Nuclear Science 53 No. 1 (2006) 270-278 \\
 
 \bibitem{ref:gastler_thesis} 
-D. E. Gastler, Design of Single Phase Liquid Argon Detectors for Dark Matter Searches, Boston University Ph.D. Thesis (2012) \\
-
-%\bibitem{ref:vetocomponentdatasheets} MiniCLEAN veto system component datasheets are at http://web.mit.edu/bbuck/www/VETO/VETO\%20Safety\%20Documents.zip \\
+	D. E. Gastler, \emph{Design of single phase liquid argon detectors for dark matter searches}, Boston University Ph.D. Thesis (2012) \\
 
 \end{thebibliography}
 
