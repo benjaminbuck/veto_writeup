@@ -1,1 +1,1 @@
-pdflatex -interaction=nonstopmode miniclean\ writeup.tex
+pdflatex -interaction=nonstopmode miniclean_writeup.tex
