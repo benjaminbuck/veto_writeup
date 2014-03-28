@@ -138,7 +138,7 @@ shown in Figure~\ref{fig:pmt_spe_q}.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4.5in]{graphics/PAYG_singlePE.pdf}
-\caption{Single photoelectron charge spectrum for PMT ID PAYG at operating voltage. The data with a pulsed LED are shown in black, with statistical errors, noise data are shown in blue, and the fit model is shown in the yellow line.
+\caption{Single photoelectron charge spectrum for PMT ID PAYG at operating voltage. The data with a pulsed LED are shown in black, with statistical errors, noise data are shown in blue, and the fit model is shown in the red line.
 \label{fig:pmt_spe_q}}
 \end{center}
 \end{figure}
@@ -180,9 +180,9 @@ SNO waterproof base enclosure was not necessary.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=2.75in,page=13]{graphics/snoConnectorDrawings.pdf}
+\includegraphics[width=2.75in]{graphics/snoConnectorDrawings.pdf}
 \includegraphics[width=2.75in]{graphics/connectorpic.pdf}
-\caption{Left: TRIUMF connector assembly drawing. Items 1,2,4,6,7,10, and 11 were built or purchased to mate RG59 cable to the existing R1408 PMT jacks. Right: As-built TRIUMF connector for mating cable to the R1408 jack. From top to bottom is shown the coupling nut, the plug body into which the cable is inserted, the teflon insulator which is also inserted into the plug body, and the pin with a stripped cable.
+\caption{Left: TRIUMF connector assembly drawing. Items 1,2,4,6,7,10, and 11 were built or purchased to mate RG59 cable to the existing R1408 PMT jacks. Right: As-built TRIUMF connector for mating cable to the R1408 jack. From top to bottom is shown the coupling nut (item 2), the plug body (item 1) with two gaskets (items 10 and 11, orange and black in the image) into which the cable is inserted, the teflon insulator (item 4) which is also inserted into the plug body, and the pin (item 7) with a stripped cable.  The stripped cable has a ferrule already mounted over it (item 6).  Items 3, 5, 8, 9, and 100 are part of the connector on the PMT.
 \label{fig:connectordrawing}}
 \end{center}
 \end{figure}
@@ -231,12 +231,14 @@ The 48 veto PMTs use 6 channels of a 12-channel card of the
 MiniCLEAN inner liquid argon detector PMT high voltage supply (LeCroy 1461 VISyN)
 with SHV connectors. The voltage divider circuits to distribute power
 from each of 6 HV channels to 8 PMTs are part of the amplifier
-discriminator card described in Section~\ref{sec:Amp-Disc}. The veto
+discriminator board described in Section~\ref{sec:Amp-Disc}. The veto
 PMT signal electronics consist of 6 amplifier discriminator boards which each service
 8 PMTs and 7 summer boards designed and built by MIT Bates Research and Engineering Center.
+The amplifier discriminator board applies the same bias to all PMTs attached to it, so PMTs
+are chosen with very similar operating voltages to be attached to each board.
 The veto PMTs use 6 channels on one CAEN V1720 digitizer
 card of the MiniCLEAN DAQ system. The veto signal multiplexing
-electronics are part of the summer card described
+electronics are part of the summer board described
 Section~\ref{sec:Sum}. The CAEN DAQ is described further
 in~\cite{ref:gastler_thesis}.
 
@@ -263,7 +265,7 @@ PMT bias scheme, along with two channels of the amplifier discriminator, is show
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5.5in, keepaspectratio=true, page=2, trim=4.54in 2.12in 4.54in 2.12in, clip=true]{graphics/veto_sch.pdf}
-\caption{Two channels of the amplifier discriminator card. J2 and J5 make the signal connections to the PMTs. J1 and J4 make the connections to the delay lines. U2 and U3 are the amplifiers, U1 is the two channel comparator.
+\caption{Two channels of the amplifier discriminator board. J2 and J5 make the signal connections to the PMTs. J1 and J4 make the connections to the delay lines. U2 and U3 are the amplifiers, U1 is the two channel comparator.
 \label{fig:ampdiscsch}}
 \end{center}
 \end{figure}
@@ -330,8 +332,8 @@ with pig tails to connect to the amplifier discriminator boards and
 the summer boards. The metal box satisfies fire protection concerns
 in the mine, as the Belden 9310 is not plenum rated. There are two
 sets of each of the seven lengths in each box. One of the signals has
-a $\sim$0~ns delay and is connected from the amplifier discriminator card to
-the summer card with a very short jumper cable. Figure~\ref{fig:multipulse}
+a $\sim$0~ns delay and is connected from the amplifier discriminator board to
+the summer board with a very short jumper cable. Figure~\ref{fig:multipulse}
 shows the time multiplexed ouput of 8 channels fed with a synchronous pulse.
 
 \begin{figure}[ht]
@@ -341,7 +343,7 @@ shows the time multiplexed ouput of 8 channels fed with a synchronous pulse.
 		pulsed with a 10~mV synchronous pulse into the amplifier discriminator board. The amplified
 		signals are routed through the delay lines into the summer board. The top trace is
 		the output of the summer board. The bottom trace is the N-Hit sum output from the
-		amplifier discriminator board, used as a trigger.
+		amplifier discriminator board, used as a trigger.  The scale is 50~ns/100~mV per division.
 \label{fig:multipulse}}
 \end{center}
 \end{figure}
@@ -350,7 +352,7 @@ shows the time multiplexed ouput of 8 channels fed with a synchronous pulse.
 \label{sec:Sum}
 %
 The summer board sums the analog channels after they have been
-delayed and also sums the N-Hit sums from each of the 6 cards to make
+delayed and also sums the N-Hit sums from each of the 6 amplifier discriminator boards to make
 a global N-Hit sum. The summer board has 8 inputs which are female
 SMA connectors. Each of these inputs is fed, DC coupled, into a CFA
 to provide buffering. This also provides the opportunity to fine tune
@@ -371,7 +373,7 @@ through the summer board is shown in Figure~\ref{fig:summerpulse}.
 	\begin{center}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseinput.jpg}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseoutput.jpg}
-		\caption{Input (left) and output (right) to the summer board measured with a test pulse generator.
+		\caption{Input (left) and output (right) to the summer board measured with a test pulse generator.  The scale is 50~ns/100~mV per division.
 		\label{fig:summerpulse}}
 	\end{center}
 \end{figure}
