@@ -1,29 +1,46 @@
-\documentclass[pdftex]{JINST}
-\pdfoutput=1
-
+\documentclass[3p,12pt]{elsarticle}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\pdfoutput=1
+\journal{Nuclear Instruments and Methods in Physics Research Section A}
+\begin{document}
+\begin{frontmatter}
 \title{Design of the MiniCLEAN dark matter search veto detector subsystem}
-\author{Robert~Abruzzio$^a$, Benjamin~Buck$^a$\thanks{Corresponding author.}, Stephen~Jaditz$^a$, James~Kelsey$^a$, Jocelyn~Monroe$^{b}$, Kimberly~Palladino$^{c}$\\
-\llap{$^a$}Department of Physics, Massachusetts Institute of Technology,\\
-	Cambridge, MA, USA\\
-	E-mail: \email{bbuck@mit.edu}\\
-\llap{$^b$}Department of Physics, Royal Holloway University of London,\\
-	Egham, Surrey, UK \\
-\llap{$^c$}SNOLAB, \\ 
-        Lively, Ontario, CA} 
-
-\abstract{This paper describes the design of the active muon veto subsystem for
+\author[mit]{Robert~Abruzzio}
+\author[mit]{Benjamin~Buck\corref{cor1}}
+\ead{bbuck@mit.edu}
+\author[lanl]{Stephen~Jaditz}
+\author[mit]{James~Kelsey}
+\author[rhul]{Jocelyn~Monroe}
+\author[sno]{Kimberly~Pallidino}
+\address[lanl]{Los Alamos National Laboratory, Los Alamos, NM, USA}
+\address[mit]{Massachusetts Institute of Technology, Cambridge, MA, USA}
+\address[rhul]{Royal Holloway University of London, Egham, Surrey, UK}
+\address[sno]{SNOLAB, Lively, Ontario, CA}
+\cortext[cor1]{Corresponding Author}
+%\author{Robert~Abruzzio$^a$, Benjamin~Buck$^a$\thanks{Corresponding author.}, Stephen~Jaditz$^a$, James~Kelsey$^a$, Jocelyn~Monroe$^{b}$, Kimberly~Palladino$^{c}$\\
+%\llap{$^a$}Department of Physics, Massachusetts Institute of Technology,\\
+%	Cambridge, MA, USA\\
+%	E-mail: \email{bbuck@mit.edu}\\
+%\llap{$^b$}Department of Physics, Royal Holloway University of London,\\
+%	Egham, Surrey, UK \\
+%\llap{$^c$}SNOLAB, \\ 
+%        Lively, Ontario, CA} 
+%
+\begin{abstract}
+This paper describes the design of the active muon veto subsystem for
 the MiniCLEAN dark matter direct detection experiment at SNOLAB in Sudbury,
 Ontario, Canada. The water-filled veto is instrumented with 48 PMTs which are
 read out by front end electronics to time multiplex 48 photomultiplier channels
 into 6 digitizer channels and provide an instantaneous hit sum across the
 subsystem (N-Hit) for the veto trigger. We describe the primary system components:
-the PMTs, the support structure, the front-end electronics, and the data acquisition system.}
-
-\keywords{Dark matter detectors, Photon detectors for UV, visible and IR photons (vacuum), Front-end electronics for detector readout}
-
-
-\begin{document}
-
+the PMTs, the support structure, the front-end electronics, and the data acquisition system.
+\end{abstract}
+\begin{keyword}
+Dark matter detectors, Photon detectors for UV, visible and IR photons (vacuum), Front-end electronics for detector readout
+\end{keyword}
+\end{frontmatter}
+%
 \section{Introduction}
 \label{Introduction}
 The MiniCLEAN experiment is searching for Weakly Interacting Massive Particle
