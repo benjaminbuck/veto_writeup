@@ -16,6 +16,10 @@ The reveiwer had 6 major issues with the manuscript which we address in the revi
 5) Authors must explain figure 2 in better detail and explain the choice of 0.25pe as a threshold w.r.t. this figure
 
 6) Authors must explain how gain matching on the PMTs takes place
+response: A detail was left out of the manuscript which mitigates this issue.  The 8 PMTs attached
+to each amplifier discriminator card are characterized before being grouped to a single amplifier
+discriminator card and thus the variation in threshold in terms of p.e. is not large.
+TODO:what is the varaition in threshold in p.e.?
 
 The reviewer had 3 minor issues with the manuscript which we address in the revision.
 

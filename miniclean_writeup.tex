@@ -274,7 +274,11 @@ The amplifier discriminator board is the front end electronics board.
 The board provides high voltage distribution to the PMTs, signal
 amplification, and signal discrimination for the N-Hit sum. The PMT
 bias voltage is fed to each of the PMT connections through a single
-SHV connector. Each PMT capacitively couples the signal onto the bias
+SHV connector. Since we charectarize each of the PMTs in a test setup we
+are able to choose PMTs based on the gain versus voltage characteristic.
+We group PMTs with a similar gain versus voltage characteristic onto a
+single amplifier discriminator board so that a single bias voltage can be
+used for 8 PMTs. Each PMT capacitively couples the signal onto the bias
 voltage line. On the amplifier discriminator board each channel has
 an amplifier input capacitively coupled to a PMT bias line. The schematic for the
 PMT bias scheme, along with two channels of the amplifier discriminator, is shown in Figure~\ref{fig:ampdiscsch}.
