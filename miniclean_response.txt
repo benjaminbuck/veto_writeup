@@ -1,0 +1,24 @@
+What follows is a point by point response to each of the issues raised by Reviewer #1:
+
+The reveiwer had 6 major issues with the manuscript which we address in the revision.
+
+1a) Authors must indicate the rational for the design choice to time multiplex several PMT signals into a single digitizer channel
+1b) Authors must identify the potential downsides of the time multiplex approach
+1c) Authors must address how PMT non-idealities (e.g., dark counts and after pulsing) will contribute to the difficulty in interperting data from this time multiplexed system
+
+2a) Authors must address how attenuation of PMT signals due to the delay lines complicates the analysis
+2b) Authors are encouraged to show the response of the system with real PMTs
+
+3) Authors should clarify how the veto signal is used by the system
+
+4) Authors should make several of the figures easier to interpert
+
+5) Authors must explain figure 2 in better detail and explain the choice of 0.25pe as a threshold w.r.t. this figure
+
+6) Authors must explain how gain matching on the PMTs takes place
+
+The reviewer had 3 minor issues with the manuscript which we address in the revision.
+
+1) General style is poor and should be refined.
+2) Authors should address the system response to gammas and neutrons
+3) Authors should use a greator-than-or-equal-to symbol for the N-hit requirement
