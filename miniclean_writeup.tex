@@ -259,6 +259,16 @@ electronics are part of the summer card described
 Section~\ref{sec:Sum}. The CAEN DAQ is described further
 in~\cite{ref:gastler_thesis}.
 
+The fundamental effect of the veto electronics is to time multiplex 8 PMT channels
+onto a single digitizer channel. For the experiment, we had available for use 7
+digitizer channels. We chose to use 6 of them to digitize the response from the
+PMTs which would be time multiplexed and one of them to digitize the N-Hit sum
+signal. The digitizers are expensive and funding would not permit purchasing 48
+digitizer channels for the veto electronics. In addition, it is not necessary to
+have each channel digitized individually. It is important only to verify that
+there are no hits in the veto volume when a potential WIMP dark matter event is
+recorded.
+
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=5in, keepaspectratio=true, trim=1.25in 5.75in 0.5in 2in, clip=true]{graphics/block.pdf}
@@ -356,6 +366,34 @@ sets of each of the seven lengths in each box. One of the signals has
 a $\sim$0~ns delay and is connected from the amplifier discriminator card to
 the summer card with a very short jumper cable. Figure~\ref{fig:multipulse}
 shows the time multiplexed ouput of 8 channels fed with a synchronous pulse.
+
+Note that the amplitude of the pulses decreases as the amount of time delayed
+increases.  This is due to the attenuation of the longer delay line and is
+one of the complexities of time multiplexing signals in this way. Also note
+that in the event of fewer than 8 channels having a signal at the same time
+it is not possible to discern which PMT(s) generated a signal. Other effects
+such as dark counts and after pulses will also appear on the output line and
+because of the time multiplexing may constructively interfere with other PMT
+signals making it impossible to discern between real hits and these effects.
+These issues, however, do not have a large effect on the goal of the veto system which is to
+ensure that a potential WIMP dark matter event recorded in the inner detector
+volume was not caused by a cosmogenic muon. With an expected count rate of
+9.8 muons per day (TODO insert reference to introduction) it is highly unlikely that two veto events will occur
+within the same 350nS time window. In addition since it is not important to
+know exactly which PMT generated the pulse nor is it important to know
+the exact magnitude of the pulse from the PMT the added complexity from the
+delay lines will not considerably impact the veto system. Finally, because
+the threshold for asserting the veto signal will be set quite low we will
+not be affected by many PMT signals overlapping.
+
+After pulses from the PMTs which follow a real signal are an additional
+concern. It is conceivable that a PMT with a short delay line may fire and
+a subsequent after pulse from this PMT may be indistinguishable from or
+interfere with a pulse from another PMT attached to a longer delay line. In
+this event, while the digitized signal may appear to show an additional PMT
+signal, the N-Hit sum would still show the proper number of PMTs hit during
+the event. Additionally, such an event would not prevent the veto signal
+from being asserted and so would have no effect.
 
 \begin{figure}[ht]
 \begin{center}
