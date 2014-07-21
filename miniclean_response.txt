@@ -18,6 +18,8 @@ TODO: I use the phrase "veto signal" in a few sections.  Make sure this is consi
 3) Authors should clarify how the veto signal is used by the system
 
 4) Authors should make several of the figures easier to interpert
+RESPONSE: Figures are now in greyscale so that there will be no loss of information when published in color vs. greyscale.
+TODO: add interpertation
 
 5) Authors must explain figure 2 in better detail and explain the choice of 0.25pe as a threshold w.r.t. this figure
 
