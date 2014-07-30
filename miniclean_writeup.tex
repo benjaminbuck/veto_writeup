@@ -92,30 +92,31 @@ described in Section~\ref{sec:electronics_design}.
 \label{sec:subsystem_design}
 %
 The water tank for the MiniCLEAN veto is a bottomless silo, with
-radius 2.8~m and height 7.9~m. These dimensions provide 1.5~m or
-greater water thickness between the cavern air and outer vessel. The
-veto interior surface is covered by a highly-reflective waterproof liner, with four
-holes in the bottom through which the supports for the main detector
-pass into the cavern floor. Four 8-inch Hamamatsu R1408 PMTs from SNO are
-attached to each of 12 equally spaced poles which hang in the water
-along the inside wall of the tank. GEANT4~\cite{ref:geant4} simulations
-of the veto performance were used to optimize the mechanical
-design. All PMTs point inward, normal to the tank wall. The heights
-of the PMTs are the midpoints of four equal lengths extending along
-the entire height of the tank. The veto configuration is shown in
-Figure~\ref{fig:veto_geom}. 
+radius 2.8~m and height 7.9~m. These dimensions were chosen to
+attenuate external neutrons and gammas, providing 1.5~m or greater
+water thickness between the cavern air and outer vessel. The veto
+interior surface is covered by a highly-reflective waterproof liner,
+with four holes in the bottom through which the supports for the main
+detector pass into the cavern floor. Four 8-inch Hamamatsu R1408 PMTs
+from SNO are attached to each of 12 equally spaced poles which hang in
+the water along the inside wall of the tank. GEANT4~\cite{ref:geant4}
+simulations of the veto performance were used to optimize the
+mechanical design. All PMTs point inward, normal to the tank wall. The
+heights of the PMTs are the midpoints of four equal lengths extending
+along the entire height of the tank. The veto configuration is shown
+in Figure~\ref{fig:veto_geom}.
 
 The simulation of this geometry and the Hamamatsu R1408 PMT response (described
 in Section~\ref{sec:pmts} results in an average of approximately 25
 photoelectrons (p.e.) detected per PMT per muon in the water. The
 average time spread between first and last detected p.e. of the signal
-on a given PMT is $\sim$15~ns. The electronics described in
+on a given PMT is at most 15~ns. The electronics described in
 Section~\ref{sec:Amp-Disc} are designed for a 0.25~p.e. threshold (2.5~mV)
-per PMT; requiring a coincidence of at least 2 PMTs above this
-threshold (N-Hit$>$2) results in an efficiency of 0.999 giving 3
+per PMT; requiring a coincidence of at least 3 PMTs above this
+threshold (N-Hit$\ge$3) results in an efficiency of 0.999 giving 3
 un-vetoed muons per year. For comparison, the simulated efficiency
 drops to 0.99 if the N-Hit threshold is 1 p.e. and the veto trigger
-requirement is N-Hit$>$8. The un-vetoed muons traverse less than 5~cm
+requirement is N-Hit$\ge$9. The un-vetoed muons traverse less than 5~cm
 of water, clipping the corners of the veto tank volume. From a
 simulation of 75 years of cosmogenic muon backgrounds, the estimated
 number of cosmogenic background induced scatters in the liquid argon
@@ -132,35 +133,40 @@ target with 20-100~keVee is $<$0.1/year.
 \subsection{PMTs, connectors, cables}
 \label{sec:pmts}
 %
-66 Hamamatsu R1408 PMTs were made available from SNO for use in the MiniCLEAN
-veto. The gain and dark rates of these PMTs were measured as a
-function of bias voltage in a PMT test stand at Los Alamos National
-Laboratory. We used a CAEN V1720 digitizer with the MiniCLEAN DAQ
-software, DCDAQ, for data acquisition \cite{ref:gastler_thesis}. PMTs were conditioned at 2100~V
+66 Hamamatsu R1408 PMTs were made available from SNO for use in the
+MiniCLEAN veto. These PMTs were qualified to find the optimum
+operating voltage, single PE charge mean and width, and noise rate in
+tests done for the Sudbury Neutrino Observatory
+(SNO)~\cite{ref:sno_pmt_paper}.  Operating voltages were chosen for an
+anode gain of 1$\times$10$^7$.  The 66 PMTs were re-tested for
+MiniCLEAN to verify the single PE charges and noise rates, following
+the SNO PMT testing analysis procedure.  In all cases except one
+broken PMT the test results were consistent with the SNO measurements.
+At the operating voltage a typical single p.e. pulse charge is 1~pC,
+with pulse amplitude of approximately 10~mV and pulse full width of
+10~ns.
+
+The MiniCLEAN veto PMT testing comprised the following.  The gain and
+dark rates of these PMTs were measured as a function of bias voltage
+in a PMT test stand at Los Alamos National Laboratory, using a CAEN
+V1720 digitizer with the MiniCLEAN DAQ software, DCDAQ, for data
+acquisition \cite{ref:gastler_thesis}. PMTs were conditioned at 2100~V
 for 12 hours. Next, a single photoelectron gain measurement as a
 function of bias voltage was made using a blue LED flashed at low
 intensity, such that PMT occupancy was several percent. Final gain and
 dark rate measurements were made in a similar test stand at MIT, and
 48 PMTs plus 5 spares were selected to use in the veto. The selection
-criterion was to chosen to minimize dark rate. We required the rate of pulses with
-$>$3~mV (approximately 0.3~p.e.) to be less than 3000~Hz in the
-absence of a light source. Operating voltages were chosen to gain
-match the PMTs for an anode gain of 1$\times$10$^7$; the range of
-operating voltages is 1800-2300~V. A typical single p.e. pulse charge
-is $\sim$1~pC, with pulse amplitude of $\sim$10~mV and pulse full width of
-$\sim$10~ns. These PMTs were also qualified in tests done many years ago for
-the Sudbury Neutrino Observatory (SNO), and the optimum operating voltage was
-found to be consistent with these earlier measurements.
-An example PMT single p.e. charge spectrum at its operating voltage is
-shown in Figure~\ref{fig:pmt_spe_q}.
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=4.5in]{graphics/PAYG_singlePE.pdf}
-\caption{Single photoelectron charge spectrum for PMT ID PAYG at operating voltage. The data with a pulsed LED are shown in black, with statistical errors, noise data are shown in blue, and the fit model is shown in the yellow line.
-\label{fig:pmt_spe_q}}
-\end{center}
-\end{figure}
+criterion was to chosen to minimize dark rate.  We required the rate
+of pulses with $>$3~mV (approximately 0.25~p.e.) to be less than
+3000~Hz in the absence of a light source.  This threshold is motivated
+by the Monte Carlo study which determined that for an N-Hit threshold
+of 0.25~p.e. and a coincidence level of N-Hit $\ge$ 2, the predicted
+efficiency is 0.999.  The selected PMTs have a mean single p.e. charge
+of 1.37 $\pm$0.17 pC, therefore 0.25~p.e. corresponds approximately to
+3~mV.  The range of operating voltages of the selected PMTs is
+1800-2300~V.  PMTs were then grouped by 8, choosing operating voltages
+within $\pm$15V per group, in order to gain match the PMTs that are
+multiplexed in the veto electronics.
 
 The SNO PMT bases are fitted with custom, waterproof TNC-type jack
 connectors which mate 75 Ohm RG59 cable to the PMTs. These custom
@@ -259,15 +265,37 @@ electronics are part of the summer card described
 Section~\ref{sec:Sum}. The CAEN DAQ is described further
 in~\cite{ref:gastler_thesis}.
 
-The fundamental effect of the veto electronics is to time multiplex 8 PMT channels
-onto a single digitizer channel. For the experiment, we had available for use 7
-digitizer channels. We chose to use 6 of them to digitize the response from the
-PMTs which would be time multiplexed and one of them to digitize the N-Hit sum
-signal. The digitizers are expensive and funding would not permit purchasing 48
-digitizer channels for the veto electronics. In addition, it is not necessary to
-have each channel digitized individually. It is important only to verify that
-there are no hits in the veto volume when a potential WIMP dark matter event is
-recorded.
+The fundamental effect of the veto electronics is to time multiplex 8
+PMT channels onto a single digitizer channel. For the experiment, we
+had available for use 7 digitizer channels. We chose to use 6 of them
+to digitize the response from the PMTs which would be time multiplexed
+and the 7th to digitize the instantaneous N-Hit sum signal across the
+veto channels, produced by the 7th summer board. The digitizers are
+expensive and funding would not permit purchasing 48 digitizer
+channels for the veto electronics. In addition, it is not necessary to
+have each channel digitized individually. It is important only to
+verify that there are no hits in the veto volume when a potential WIMP
+dark matter event is recorded.  
+
+The instantaneous N-Hit sum signal across the veto is sent to the
+MiniCLEAN trigger module forming the veto trigger signal.  This module
+is described in detail in~\cite{ref:gastler_thesis}; briefly, it
+accepts analog trigger signals from a variety of inputs and fans them
+out to the digitizer boards to cause acquisition of a waveform from
+all channels, forming an event.  Given the low expected rate of muons
+traversing the veto, the veto trigger signal is used to cause data
+acquisition across the full detector rather than to prevent the DAQ
+from recording data when a veto signal is present.  The veto trigger
+level is adjustable, with a threshold voltage set in hardware.  The
+plan for operations is to set this level corresponding to N-Hit $\ge$
+3.  Given the N-Hit threshold per PMT of 0.25 pe, the maximum allowed
+veto PMT noise rates at this threshold (3000 Hz), and 50 ns
+coincidence window, the expected rate of false coincidences at this
+level is $<$7$\times$10$^{-5}$Hz.  Using the average measured noise
+rate of the selected PMTs (1800 Hz), this false coincidence rate drops
+by a factor of 5, giving an expected signal-to-noise ratio in the veto
+trigger of approximately 10-to-1.
+
 
 \begin{figure}[ht]
 \begin{center}
@@ -499,6 +527,9 @@ D. Mei and A. Hime, \emph{Muon-induced background study for underground laborato
 
 \bibitem{ref:geant4} 
 J. Allison {\it et al.} \emph{Geant4 developments and applications}, IEEE Transactions on Nuclear Science 53 No. 1 (2006) 270-278 \\
+
+\bibitem{ref:sno_pmt_paper}
+C.J. Jillings {\it et al.} \emph{The Photomultiplier Tube Testing Facility for the Sudbury Neutrino Observatory}, Nucl. Instr. and Meth. A373 (1996) 421 \\
 
 \bibitem{ref:gastler_thesis} 
 	D. E. Gastler, \emph{Design of single phase liquid argon detectors for dark matter searches}, Boston University Ph.D. Thesis (2012) \\

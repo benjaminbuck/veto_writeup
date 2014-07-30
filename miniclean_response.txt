@@ -14,16 +14,45 @@ TODO: I use the phrase "veto signal" in a few sections.  Make sure this is consi
 
 2a) Authors must address how attenuation of PMT signals due to the delay lines complicates the analysis
 2b) Authors are encouraged to show the response of the system with real PMTs
+--JRM: can you show data from the fake-MiniCLEAN tests that were done at BU?
 
 3) Authors should clarify how the veto signal is used by the system
+--JRM RESPONSE:  A paragraph was added to section 3 on how the veto signal is used as a trigger.
 
 4) Authors should make several of the figures easier to interpert
 RESPONSE: Figures are now in greyscale so that there will be no loss of information when published in color vs. greyscale.
 TODO: add interpertation
 
-5) Authors must explain figure 2 in better detail and explain the choice of 0.25pe as a threshold w.r.t. this figure
+5) Authors must explain figure 2 in better detail and explain the
+choice of 0.25pe as a threshold w.r.t. this figure 
+
+-JRM RESPONSE: Section 2.1 has been substantially rewritten, and
+figure 2 removed.  The primary testing of the veto PMTs to determine
+operating voltage, efficiency, single PE charge, and noise rates was
+done by the SNO experiment, and a reference to the technical
+publication documenting this has been added. The testing described
+here was done following the SNO procedure to verify that the PMTs were
+still working, and to select the subset of PMTs to use in the veto.
+The resulting single PE charges and noise rates were consistent
+with the SNO measurements, and so the SNO values are used.  This is
+now clarified in the text in the first two paragraphs of Section 2.1.
+
+Regarding the 3 mV threshold, the following sentences have been added
+to Section 2.1 paragraph 2 to clarify this: 
+"We required the rate of pulses with $>$3~mV (approximately 0.25~p.e.)
+to be less than 3000~Hz in the absence of a light source.  This
+threshold is motivated by the Monte Carlo study which determined that
+for an N-Hit threshold of 0.25~p.e. and a coincidence level of N-Hit
+$\ge$ 2, the predicted efficiency is 0.999.  The selected PMTs have a
+mean single p.e. charge of 1.37 $\pm$0.17 pC, therefore
+0.25~p.e. corresponds approximately to 3~mV."
 
 6) Authors must explain how gain matching on the PMTs takes place
+--JRM RESPONSE: This has been clarified in a sentence in Section 2.1,
+paragraph 2: "PMTs were then grouped by 8, choosing operating voltages
+within $\pm$15V per group, in order to gain match the PMTs that are
+multiplexed in the veto electronics.  "
+
 RESPONSE: A detail was left out of the manuscript which mitigates this issue.  The 8 PMTs attached
 to each amplifier discriminator card are characterized before being grouped to a single amplifier
 discriminator card and thus the variation in threshold in terms of p.e. is not large.
@@ -35,4 +64,15 @@ The reviewer had 3 minor issues with the manuscript which we address in the revi
 
 2) Authors should address the system response to gammas and neutrons
 
+--JRM RESPONSE: the veto operates by detecting Cherenkov light, and
+  therefore does not have direct sensitivity to gammas and neutrons.
+  The water attenuates gammas and neutrons significantly, this is now
+  stated explicitly in Section 2, par. 1, sentence 2, and the
+  last sentence of Section 2, par. 1 addresses the resulting
+  cosmogenic muon, and associated neutron and gamma, -induced recoil
+  background.
+
+  
+
 3) Authors should use a greator-than-or-equal-to symbol for the N-hit requirement
+--JRM RESPONSE: Done. NHit > 2 has been changed to N-Hit >= 3 throughout.
