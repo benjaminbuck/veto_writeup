@@ -1,78 +1,186 @@
-What follows is a point by point response to each of the issues raised by Reviewer #1:
+Thank you very much for the review.  What follows is a point by point response to each of the issues raised by Reviewer #1:
 
 The reveiwer had 6 major issues with the manuscript which we address in the revision.
 
-1a) Authors must indicate the rational for the design choice to time multiplex several PMT signals into a single digitizer channel
-RESPONSE: We now include this rational in our discussion.  The digitizers are expensive and it is not important to digitize each PMT channel in high fidelity; it suffices to have 8 channels multiplexed together. 
+Issue 1) The authors describe a how they delay the analog signals by different amounts and sum them in order to reduce the number of digitizing channels required.  The authors should indicate what the rational is for this design choice (e.g. is it driven by available funding) and what the potential downsides are of this choice.  The parameters specified for the required delays are based on the time spread of photons obtained from simulations.  The question that is not addressed is how for example after-pulsing in the PMTs and/or dark counts in the individual PMT channels increases the difficulty to use the summed delayed signals to determine the individual PMT responses.
 
-1b) Authors must identify the potential downsides of the time multiplex approach
-RESPONSE: We now identify a number of potential downsides to this time multiplexing approach.  In the delay lines section we address how this approach is affected by attenuation in the delay lines, constructave interference from dark counts and after-pulsing, and an inability to discern multiple hits.
+RESPONSE: We include a paragraph explaining the rational in Section 3, paragraph 2:
 
-1c) Authors must address how PMT non-idealities (e.g., dark counts and after pulsing) will contribute to the difficulty in interperting data from this time multiplexed system.
-RESPONSE: We now go into detail in the Delay Lines section about how the non-idealities and problems identified in 1b will affect the system.  In short; because the system asserts the veto at a low threshold and because the event rate is so low, most of these effects will not be a problem in operation.
-TODO: I use the phrase "veto signal" in a few sections.  Make sure this is consistent with other modifications.
+"The rationale for multiplexing the veto PMT signals is the relatively
+high cost-per-channel of the digitizing electronics.  So, the veto
+electronics time multiplex 8 PMT channels onto a single digitizer
+channel. For the veto, 7 digitizer channels were available. We chose
+to use 6 of them to digitize the time-mulitplexed response from the
+PMTs and to use the 7th to digitize the instantaneous N-Hit sum signal
+across the veto channels.  This approach minimizes the information
+loss from multiplexing since the instantaneous N-Hit sum signal can be
+used to verify that there are no hits in the veto volume when a
+candidate WIMP dark matter event is recorded, and the time-multiplexed
+signals can be used to study muon signals in the veto in greater
+detail to validate the cosmogenic background prediction from simulation."
 
-2a) Authors must address how attenuation of PMT signals due to the delay lines complicates the analysis
-2b) Authors are encouraged to show the response of the system with real PMTs
---JRM: can you show data from the fake-MiniCLEAN tests that were done at BU?
+RESPONSE: We now identify a number of potential downsides to this time multiplexing approach in Section 3.2:
 
-3) Authors should clarify how the veto signal is used by the system
---JRM RESPONSE:  A paragraph was added to section 3 on how the veto signal is used as a trigger.
+"Another complexity introduced by the time multiplexing is the
+increased probability of PMT noise pulses, such as from thermionic
+emission or afterpulsing, piling up with PMT signal pulses.  The PMT
+dark rate is required by the veto PMT selection criteria to be $<$3000
+Hz at 0.25 p.e. threshold, and therefore the probability of a noise
+pulse occuring during the full 350~ns delay window is 0.1\% per
+channel per event.  The fraction of afterpulses in the SNO R1408 PMTs
+(of which these veto PMTs are a subset) was required to be $<$1.5\% of
+the total measured charge above a threshold of 0.25 p.e., where
+afterpulses are defined as occuring at times$\gt$20~ns after a prompt
+single p.e.  calibration signal~\cite{ref:sno_pmt_paper}.  Therefore
+afterpulsing in these PMTs is a small effect (of order 30 Hz singles
+rate at a threshold of 0.25 p.e.)."
 
-4) Authors should make several of the figures easier to interpert
-RESPONSE: Figures are now in greyscale so that there will be no loss of information when published in color vs. greyscale.
-TODO: add interpertation
+RESPONSE: We added a discussion in Section 3.2 about how the non-idealities and problems identified in 1b) will affect the system, see response above.  We added some discussion on how these will be mitigated:
 
-5) Authors must explain figure 2 in better detail and explain the
-choice of 0.25pe as a threshold w.r.t. this figure 
+"... in events with contribution from dark noise or afterpulsing
+hits, the digitized time multiplexed signal will show the noise
+contributions, but the instantaneous N-Hit sum will show only the
+number of PMTs with prompt hits during the event. This inconsistency
+can be used to identify events with significant noise contribution.
 
--JRM RESPONSE: Section 2.1 has been substantially rewritten, and
+In general, the time multiplexing increases the effect of PMT noise
+pulses by extending the window over which they may occur by a factor
+of 7. However, the time multiplexing design does not significantly
+impact the goal of the veto subsystem which is to ensure that a
+potential WIMP dark matter event recorded in the inner detector volume
+was not caused by a cosmogenic muon. With an expected count rate of
+9.8 muons per day it is highly unlikely that two real veto events will
+occur within the same 350~ns time window, and given the measured noise
+rates, the probability of noise hit contributions during this window
+is tolerably low."
+
+--------------------------------------------------------------------------------
+
+Issue 2) Fig. 7 shows a significant amount of attenuation in the delayed signal (almost a factor of 2 between the first pulse and the pulse with the longest delay.  The authors present these data without any discussion.  This "feature" further complicates the analysis of the summed data and justifies a discussion in this manuscript.  It would have been nice to show the response of the system with real PMT signals
+
+RESPONSE: we have added a sentence to Section 3.2 on how this effect will be handled in the analysis.  Unfortunately due to construction delays the system has not been installed and we do not have any captures of the response of the system to real PMT signals:
+
+"The amplitude of the pulses decreases by approximately 30\% from the first
+to the eighth delayed pulse.  This is due to the attenuation of the
+longer delay line.  This amplitude decrease can be calibrated out in
+the analysis of the multiplexed signals, using this synchronous
+constant input pulse measurement."
+
+--------------------------------------------------------------------------------
+
+Issue 3) The authors must be specific about how the veto signal that is generated using the N-hit signals is used.  It is not clear from the text whether the veto is an active veto (preventing the DAQ from recording data when a veto signal is present) or an offline veto (where the decision to accept or reject a recorded event during data analysis is based on the amplitude of the digitized N-hit sum signal).  I assume it is the latter since the block diagram in Fig. 5 shows that the N-hit sum signal is digitized but not that this signal is used elsewhere but I should not have to guess.
+
+RESPONSE:  A paragraph was added to section 3 on how the veto signal is used as a trigger:
+
+"The instantaneous N-Hit sum signal across the veto is sent to the
+MiniCLEAN trigger module forming the veto trigger signal.  This module
+is described in detail in~\cite{ref:gastler_thesis}; briefly, it
+accepts analog trigger signals from a variety of inputs and fans them
+out to the digitizer boards to cause acquisition of a waveform from
+all channels, forming an event.  Given the low expected rate of muons
+traversing the veto, the veto trigger signal is used to cause data
+acquisition across the full detector rather than to prevent the DAQ
+from recording data when a veto signal is present.  The veto trigger
+level is adjustable, with a threshold voltage set in hardware.  The
+plan for operations is to set this level corresponding to N-Hit $\ge$
+3.  Given the N-Hit threshold per PMT of 0.25 pe, the maximum allowed
+veto PMT noise rates at this threshold (3000 Hz), and 50 ns
+coincidence window, the expected rate of false coincidences at this
+level is $<$7$\times$10$^{-5}$Hz.  Using the average measured noise
+rate of the selected PMTs (1800 Hz), this false coincidence rate drops
+by a factor of 5, giving an expected signal-to-noise ratio in the veto
+trigger of approximately 10-to-1."
+
+--------------------------------------------------------------------------------
+
+Issue 4) Several of the figures are difficult to interpret.  For example, I understand what Fig. 7 shows but in grey scale, in which it will be printed, the red trace becomes invisible.  The same comment applies to the red traces in Fig. 8.  The authors also do not draw any conclusions from the traces shown in these Figures.  For example, comparing the measured output of the summer, shown in Fig. 8, with the sum of the measured inputs would be a good way to demonstrate the level of distortions introduced by the summer.  Comparing the measured amplitude of the N-hit signal with the expected amplitude would be good too.
+
+RESPONSE: Figures are now in greyscale so that there will be no loss of information when published in color vs. greyscale.  More discussion is added into the captions. A 10mV test pulse was generated by 50 ohm test equipment and fed into the amplifier discriminator cards.  Because the termination resistance for the amplifier discriminator cards is 75ohm this gives us an equivalent of a 12mV test pulse.  In the previous version we erroneously called this a 10mV test pulse.  This has been corrected in the current version.:
+
+"Oscilloscope capture from the output of a summer board. Eight channels
+pulsed with a 12~mV synchronous pulse into the amplifier discriminator board. The amplified
+signals are routed through the delay lines into the summer board. The top trace is
+the output of the summer board. The bottom trace is the N-Hit sum output from the
+amplifier discriminator board, used as a trigger. Horizontal scale is 50~nS per division,
+vertical scale is 100~mV per division. This figure illustrates the attenuation caused by the delay
+lines which which will need to be compensated for in software. The first pulse shows an amplitude of approx 120mV which would be expected with a gain of 10 from the system."
+
+"Four input signals (left) and the output signal (right) to a summer board measured with a test pulse generator. The other four input channels are grounded. Horizontal scale is 10~nS per division, vertical scale is 100~mv per division.  The active input channels have an amplitude of about 200~mV as shown in the left plot.  The summer outputs the sum attenuated by a factor of 5 as shown in the right plot."
+
+--------------------------------------------------------------------------------
+
+Issue 5) Fig. 2 shows a large number of fit parameters that are not discussed in the text.  If they are not discussed, they should not be shown.  The Figure also does not have a label in the vertical axis.  I find this a very confusing figure.  The data with the pulsed LED barely show the single photoelectron peak (it is more like shoulder).  The manuscript suggests that data will be collected with a threshold of 0.25 photoelectrons, which on the scale of this figure correspond to 0.35 pC.  The limit on the vertical scale prevents me from seeing the full noise peak, but it is clear that with a threshold of 0.35 pC, the system will trigger mainly on noise signals.  The authors need to discuss the impact of this.  Showing the data
+
+RESPONSE: Section 2.1 has been substantially rewritten, and
 figure 2 removed.  The primary testing of the veto PMTs to determine
 operating voltage, efficiency, single PE charge, and noise rates was
-done by the SNO experiment, and a reference to the technical
-publication documenting this has been added. The testing described
-here was done following the SNO procedure to verify that the PMTs were
-still working, and to select the subset of PMTs to use in the veto.
-The resulting single PE charges and noise rates were consistent
-with the SNO measurements, and so the SNO values are used.  This is
-now clarified in the text in the first two paragraphs of Section 2.1.
+done by the SNO experiment, and this work is documented in the SNO
+technical publication, to which a reference has been added.  The
+MiniCLEAN veto PMT testing confirmed the SNO results.  The text of
+Section 2.1 paragraph 1 has been modified to:
+
+"Sixty-six Hamamatsu R1408 PMTs were made available from SNO for use
+in the MiniCLEAN veto. These PMTs were qualified to find the optimum
+operating voltage, single PE charge mean and width, and noise rate in
+tests done for the Sudbury Neutrino Observatory
+(SNO)~\cite{ref:sno_pmt_paper}.  Operating voltages were chosen for an
+anode gain of 1$\times$10$^7$.  The 66 PMTs were re-tested for
+MiniCLEAN to verify the single PE charges and noise rates, following
+the SNO PMT testing analysis procedure.  In all cases except one
+broken PMT the test results were consistent with the SNO
+measurements."
 
 Regarding the 3 mV threshold, the following sentences have been added
-to Section 2.1 paragraph 2 to clarify this: 
-"We required the rate of pulses with $>$3~mV (approximately 0.25~p.e.)
-to be less than 3000~Hz in the absence of a light source.  This
-threshold is motivated by the Monte Carlo study which determined that
-for an N-Hit threshold of 0.25~p.e. and a coincidence level of N-Hit
-$\ge$ 2, the predicted efficiency is 0.999.  The selected PMTs have a
-mean single p.e. charge of 1.37 $\pm$0.17 pC, therefore
-0.25~p.e. corresponds approximately to 3~mV."
+to Section 2.1 paragraph 3 to clarify this:
 
-6) Authors must explain how gain matching on the PMTs takes place
---JRM RESPONSE: This has been clarified in a sentence in Section 2.1,
-paragraph 2: "PMTs were then grouped by 8, choosing operating voltages
-within $\pm$15V per group, in order to gain match the PMTs that are
-multiplexed in the veto electronics.  "
+"We required the rate of pulses with amplitude $>$3~mV to be less than
+3000~Hz in the absence of a light source.  The 3~mV pulse amplitude
+corresponds to a threshold of 0.2-0.25~p.e. for the 53 selected PMTs.
+This threshold is motivated by the Monte Carlo study which determined
+that for an N-Hit threshold of 0.25~p.e. and a coincidence level of
+N-Hit $\ge$ 3, the predicted muon veto efficiency is 0.999."
 
-RESPONSE: A detail was left out of the manuscript which mitigates this issue.  The 8 PMTs attached
-to each amplifier discriminator card are characterized before being grouped to a single amplifier
-discriminator card and thus the variation in threshold in terms of p.e. is not large.
-TODO:what is the varaition in threshold in p.e.?
+--------------------------------------------------------------------------------
+
+Issue 6) A single HV is used for 8 PMTs.  If I read the details in Fig. 6 correctly, the same HV is used for all PMTs (connections between the HV input and J2 and J5 are identical).  This implies that the PMTs connected to one amplifier card cannot be gain matched since their HV is the same.  Since the threshold is common to all eight channels, there can be significant threshold variations (in terms of photoelectrons) among the PMTs.  This makes the N-hit value more difficult to interpret.  The authors should discuss the impact of this.
+
+RESPONSE: This has been clarified in Section 2.1,
+paragraph 2: 
+
+"The range of operating voltages of the selected PMTs is 1800-2300~V.
+PMTs were then grouped by 8, choosing operating voltages within
+$\pm$15V per group, in order to gain match the PMTs that are
+multiplexed in the veto electronics.  The spread of single
+p.e. charges at the 3~mV amplitude threshold within a multiplexed
+group is at most $\pm$0.05 p.e."
+
+--------------------------------------------------------------------------------
 
 The reviewer had 3 minor issues with the manuscript which we address in the revision.
 
-1) General style is poor and should be refined.
 
-2) Authors should address the system response to gammas and neutrons
+1) The style of writing is rather poor.  The Figures are not references in the correct order (e.g. Figure 5 is referenced after Figure 1, before Figures 2, 3, and 4 are referenced).  There are many dashes missing (e.g. "low-energy neutrons" instead of "low energy neutrons").
 
---JRM RESPONSE: the veto operates by detecting Cherenkov light, and
-  therefore does not have direct sensitivity to gammas and neutrons.
-  The water attenuates gammas and neutrons significantly, this is now
-  stated explicitly in Section 2, par. 1, sentence 2, and the
-  last sentence of Section 2, par. 1 addresses the resulting
-  cosmogenic muon, and associated neutron and gamma, -induced recoil
-  background.
+RESPONSE: The text has been substantially modified with attention to clarity.
 
-  
 
-3) Authors should use a greator-than-or-equal-to symbol for the N-hit requirement
---JRM RESPONSE: Done. NHit > 2 has been changed to N-Hit >= 3 throughout.
+2) The authors refer to muons generating a veto trigger.  What is the response of the system to gamma rays and neutrons?
+
+RESPONSE: A paragraph has been added at the end of section 2 to clarify this point:
+
+"The minimum thickness of the water, 1.5~$m$ between cavern air and
+the outer vessel of the cryostat containing the liquid argon volume of
+the dark matter detector, was chosen to attenuate the cosmogenic
+muon-induced gamma and neutron flux.  The dangerous category of
+cosmogenic backgrounds comes from muons which are not tagged by the
+veto yet still produce neutrons or gammas which scatter in the liquid
+argon volume to produce low-energy recoils that mimic a dark matter
+signal.  From a simulation of 75 years of cosmogenic muon backgrounds,
+using the model from~\cite{ref:mei_and_hime}, the estimated number of
+cosmogenic-induced background scatters in the liquid argon target in
+the dark matter region of interest, 20-100~keVee, is $<$0.1/year."
+
+
+3) When a coincidence of 2 PMTs is used to generate a veto, the requirement should be written as "N-Hit => 2" instead of "N-Hit > 2"
+
+RESPONSE: NHit > 2 has been changed to N-Hit >= 3 throughout.

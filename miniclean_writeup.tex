@@ -32,7 +32,7 @@
 This paper describes the design of the active muon veto subsystem for
 the MiniCLEAN dark matter direct detection experiment at SNOLAB in Sudbury,
 Ontario, Canada. The water-filled veto is instrumented with 48 PMTs which are
-read out by front end electronics to time multiplex 48 photomultiplier channels
+read out by front-end electronics to time multiplex 48 photomultiplier channels
 into 6 digitizer channels and provide an instantaneous hit sum across the
 subsystem (N-Hit) for the veto trigger. We describe the primary system components:
 the PMTs, the support structure, the front-end electronics, and the data acquisition system.
@@ -79,8 +79,7 @@ The MiniCLEAN Muon Veto Subsystem consists of:
 The custom electronics bias the PMTs, time multiplex 8 PMT channels into a
 single digitizer channel, and generate a signal proportional to the number
 of PMTs above threshold at any moment which is used as the veto trigger to
-the DAQ. An overview of the system is shown in
-Figure~\ref{fig:block_diagram}.
+the DAQ.
 
 This paper describes the mechanical and electrical design of the veto
 subsystem. The mechanical system is described in
@@ -92,8 +91,7 @@ described in Section~\ref{sec:electronics_design}.
 \label{sec:subsystem_design}
 %
 The water tank for the MiniCLEAN veto is a bottomless silo, with
-radius 2.8~m and height 7.9~m. These dimensions were chosen to
-attenuate external neutrons and gammas, providing 1.5~m or greater
+radius 2.8~m and height 7.9~m, providing 1.5~m or greater
 water thickness between the cavern air and outer vessel. The veto
 interior surface is covered by a highly-reflective waterproof liner,
 with four holes in the bottom through which the supports for the main
@@ -106,21 +104,31 @@ heights of the PMTs are the midpoints of four equal lengths extending
 along the entire height of the tank. The veto configuration is shown
 in Figure~\ref{fig:veto_geom}.
 
-The simulation of this geometry and the Hamamatsu R1408 PMT response (described
-in Section~\ref{sec:pmts} results in an average of approximately 25
-photoelectrons (p.e.) detected per PMT per muon in the water. The
-average time spread between first and last detected p.e. of the signal
-on a given PMT is at most 15~ns. The electronics described in
-Section~\ref{sec:Amp-Disc} are designed for a 0.25~p.e. threshold (2.5~mV)
-per PMT; requiring a coincidence of at least 3 PMTs above this
-threshold (N-Hit$\ge$3) results in an efficiency of 0.999 giving 3
-un-vetoed muons per year. For comparison, the simulated efficiency
+The simulation of this geometry and the Hamamatsu R1408 PMT response
+(described in Section~\ref{sec:pmts}) results in an average of
+approximately 25 photoelectrons (p.e.) detected per PMT per muon in
+the water. The average time spread between first and last detected
+p.e. of the signal on a given PMT is at most 15~ns. The electronics
+described in Section~\ref{sec:Amp-Disc} are designed for a 0.25~p.e.
+threshold per PMT; requiring a coincidence of more than 2 PMTs above
+this threshold (N-Hit$\ge$3) results in an efficiency of 0.999 giving
+3 un-vetoed muons per year. For comparison, the simulated efficiency
 drops to 0.99 if the N-Hit threshold is 1 p.e. and the veto trigger
-requirement is N-Hit$\ge$9. The un-vetoed muons traverse less than 5~cm
-of water, clipping the corners of the veto tank volume. From a
-simulation of 75 years of cosmogenic muon backgrounds, the estimated
-number of cosmogenic background induced scatters in the liquid argon
-target with 20-100~keVee is $<$0.1/year.
+requirement is N-Hit$\ge$9. The muons which fail to produce N-Hit$\ge$3
+traverse less than 5~cm of water, clipping the corners of the veto
+tank volume and typically depositing $<$10 MeV in the water. 
+
+The minimum thickness of the water, 1.5~$m$ between cavern air and the
+outer vessel of the cryostat containing the liquid argon volume of the
+dark matter detector, was chosen to attenuate the cosmogenic
+muon-induced gamma and neutron flux.  The dangerous category of
+cosmogenic backgrounds comes from muons which are not tagged by the
+veto yet still produce neutrons or gammas which scatter in the liquid
+argon volume to produce low-energy recoils that mimic a dark matter
+signal.  From a simulation of 75 years of cosmogenic muon backgrounds,
+using the model from~\cite{ref:mei_and_hime}, the estimated number of
+cosmogenic-induced background scatters in the liquid argon target in
+the dark matter region of interest, 20-100~keVee, is $<$0.1/year.
 
 \begin{figure}[ht]
 \begin{center}
@@ -133,7 +141,7 @@ target with 20-100~keVee is $<$0.1/year.
 \subsection{PMTs, connectors, cables}
 \label{sec:pmts}
 %
-66 Hamamatsu R1408 PMTs were made available from SNO for use in the
+Sixty-six Hamamatsu R1408 PMTs were made available from SNO for use in the
 MiniCLEAN veto. These PMTs were qualified to find the optimum
 operating voltage, single PE charge mean and width, and noise rate in
 tests done for the Sudbury Neutrino Observatory
@@ -146,7 +154,7 @@ At the operating voltage a typical single p.e. pulse charge is 1~pC,
 with pulse amplitude of approximately 10~mV and pulse full width of
 10~ns.
 
-The MiniCLEAN veto PMT testing comprised the following.  The gain and
+The MiniCLEAN veto PMT testing comprised of the following.  The gain and
 dark rates of these PMTs were measured as a function of bias voltage
 in a PMT test stand at Los Alamos National Laboratory, using a CAEN
 V1720 digitizer with the MiniCLEAN DAQ software, DCDAQ, for data
@@ -154,19 +162,24 @@ acquisition \cite{ref:gastler_thesis}. PMTs were conditioned at 2100~V
 for 12 hours. Next, a single photoelectron gain measurement as a
 function of bias voltage was made using a blue LED flashed at low
 intensity, such that PMT occupancy was several percent. Final gain and
-dark rate measurements were made in a similar test stand at MIT, and
-48 PMTs plus 5 spares were selected to use in the veto. The selection
-criterion was to chosen to minimize dark rate.  We required the rate
-of pulses with $>$3~mV (approximately 0.25~p.e.) to be less than
-3000~Hz in the absence of a light source.  This threshold is motivated
+dark rate measurements were made at the PMT operating voltage in a
+similar test stand at MIT, and 48 PMTs plus 5 spares were selected for
+use in the veto. 
+
+The selection criterion was chosen to minimize dark rate, and thereby
+minimize the rate of false veto triggers (discussed in Section
+\ref{sec:electronics_design}).  We required the rate of pulses with
+amplitude $>$3~mV to be less than 3000~Hz in the absence of a light
+source.  The 3~mV pulse amplitude corresponds to a threshold of
+0.2-0.25~p.e. for the 53 selected PMTs.  This threshold is motivated
 by the Monte Carlo study which determined that for an N-Hit threshold
-of 0.25~p.e. and a coincidence level of N-Hit $\ge$ 2, the predicted
-efficiency is 0.999.  The selected PMTs have a mean single p.e. charge
-of 1.37 $\pm$0.17 pC, therefore 0.25~p.e. corresponds approximately to
-3~mV.  The range of operating voltages of the selected PMTs is
-1800-2300~V.  PMTs were then grouped by 8, choosing operating voltages
-within $\pm$15V per group, in order to gain match the PMTs that are
-multiplexed in the veto electronics.
+of 0.25~p.e. and a coincidence level of N-Hit$\ge$3, the predicted
+muon veto efficiency is 0.999.  The range of operating voltages of the
+selected PMTs is 1800-2300~V.  PMTs were then grouped by 8, choosing
+operating voltages within $\pm$15V per group, in order to gain match
+the PMTs that are multiplexed in the veto electronics.  The spread of
+single p.e. charges at the 3~mV amplitude threshold within a
+multiplexed group is at most $\pm$0.05 p.e.
 
 The SNO PMT bases are fitted with custom, waterproof TNC-type jack
 connectors which mate 75 Ohm RG59 cable to the PMTs. These custom
@@ -189,19 +202,20 @@ The connection to the PMTs uses a custom cable, Belden part number YR29304 Rev 2
 RG-59 coaxial cable and is the same cable used by SuperK and SNO.
 The cable is flooded, has a waterproof jacket and is rated to 2.3~kV.
 
-The SNO PMTs come with waterproof base enclosures, consisting of a
-plastic cylinder filled with gel. All of the PMTs were immersed in water and operated at voltage for approximately 4 hours in a test stand at
-MIT to look for base waterproofing or connector failures. However,
-this test did not simulate the water pressure at the bottom of the
-veto tank. To address this question, a pressure vessel was assembled
-at MIT Bates Research and Engineering Center to test the PMT bulbs, base enclosures, connectors, and
-cables for waterproofness and structural integrity at pressure
-equivalent to that at the bottom of the veto. Testing
-all of the PMTs at atmospheric pressure was successful and a random
-subset of 10\% of the PMTs tested at 4 atm for several weeks (a factor of 2
-above the maximum pressure in the MiniCLEAN veto tank) found no
-failures. Therefore we concluded that further encapsulation of the
-SNO waterproof base enclosure was not necessary.
+The SNO PMTs have waterproof base enclosures, consisting of a plastic
+cylinder filled with gel. All of the PMTs were immersed in water and
+operated at voltage for approximately 4 hours in a test stand at MIT
+to look for base waterproofing or connector failures. However, this
+test did not simulate the water pressure at the bottom of the veto
+tank. To study this issue, a pressure vessel was assembled at MIT
+Bates Research and Engineering Center to test the PMT bulbs, base
+enclosures, connectors, and cables for waterproofness and structural
+integrity at pressure equivalent to that at the bottom of the veto.
+Testing all of the PMTs at atmospheric pressure was successful and a
+random subset of 10\% of the PMTs tested at 4 atm for several weeks (a
+factor of 2 above the maximum pressure in the MiniCLEAN veto tank)
+found no failures. Therefore we concluded that further encapsulation
+of the SNO waterproof base enclosure was not necessary.
 
 \begin{figure}[ht]
 \begin{center}
@@ -247,35 +261,39 @@ four PMTs and associated hardware, dry, was done Bates (shown in Figure~\ref{fig
 \section{Electronics design of the MiniCLEAN veto subsystem}
 \label{sec:electronics_design}
 %
-The electronic components of the veto subsystem are the PMT high voltage
-supply, the PMT signal electronics, and the data acquisition
-electronics. A schematic showing the system outline is shown in
+The electronic components of the veto subsystem are the PMT high
+voltage supply, the PMT signal electronics, and the data acquisition
+electronics. A schematic of the system is shown in
 Figure~\ref{fig:block_diagram}.
 
-The 48 veto PMTs use 6 channels of a 12-channel card of the
-MiniCLEAN inner liquid argon detector PMT high voltage supply (LeCroy 1461 VISyN)
-with SHV connectors. The voltage divider circuits to distribute power
-from each of 6 HV channels to 8 PMTs are part of the amplifier
-discriminator card described in Section~\ref{sec:Amp-Disc}. The veto
-PMT signal electronics consist of 6 amplifier discriminator boards which each service
-8 PMTs and 7 summer boards designed and built by MIT Bates Research and Engineering Center.
-The veto PMTs use 6 channels on one CAEN V1720 digitizer
-card of the MiniCLEAN DAQ system. The veto signal multiplexing
+The veto PMT signal electronics consist of 6 amplifier discriminator
+boards, which each service 8 PMTs, and 7 summer boards designed and
+built by MIT Bates Research and Engineering Center.  To supply the
+bias voltage to the 48 veto PMTs, 6 channels of a 12-channel card of
+the MiniCLEAN liquid argon detector PMT high voltage supply (LeCroy
+1461 VISyN) are used. The voltage divider circuits that distribute
+power from each of 6 HV channels to 8 PMTs are part of the amplifier
+discriminator card described in Section~\ref{sec:Amp-Disc}.  To
+digitize the veto PMT signals, 7 channels on one 8-channel CAEN V1720
+digitizer card of the MiniCLEAN DAQ system are used.  A key feature of
+the veto system electronics is multiplexing the signals from 48 veto
+PMTs down to 6 digitizer channels.  The veto signal multiplexing
 electronics are part of the summer card described
-Section~\ref{sec:Sum}. The CAEN DAQ is described further
+Section~\ref{sec:Sum}. The MiniCLEAN CAEN DAQ is described in detail
 in~\cite{ref:gastler_thesis}.
 
-The fundamental effect of the veto electronics is to time multiplex 8
-PMT channels onto a single digitizer channel. For the experiment, we
-had available for use 7 digitizer channels. We chose to use 6 of them
-to digitize the response from the PMTs which would be time multiplexed
-and the 7th to digitize the instantaneous N-Hit sum signal across the
-veto channels, produced by the 7th summer board. The digitizers are
-expensive and funding would not permit purchasing 48 digitizer
-channels for the veto electronics. In addition, it is not necessary to
-have each channel digitized individually. It is important only to
-verify that there are no hits in the veto volume when a potential WIMP
-dark matter event is recorded.  
+The rationale for multiplexing the veto PMT signals is the relatively
+high cost-per-channel of the digitizing electronics.  So, the veto
+electronics time multiplex 8 PMT channels onto a single digitizer
+channel. For the veto, 7 digitizer channels were available. We chose
+to use 6 of them to digitize the time-mulitplexed response from the
+PMTs and to use the 7th to digitize the instantaneous N-Hit sum signal
+across the veto channels.  This approach minimizes the information
+loss from multiplexing since the instantaneous N-Hit sum signal can be
+used to verify that there are no hits in the veto volume when a
+candidate WIMP dark matter event is recorded, and the time-multiplexed
+signals can be used to study muon signals in the veto in greater
+detail to validate the cosmogenic background prediction from simulation.
 
 The instantaneous N-Hit sum signal across the veto is sent to the
 MiniCLEAN trigger module forming the veto trigger signal.  This module
@@ -287,8 +305,8 @@ traversing the veto, the veto trigger signal is used to cause data
 acquisition across the full detector rather than to prevent the DAQ
 from recording data when a veto signal is present.  The veto trigger
 level is adjustable, with a threshold voltage set in hardware.  The
-plan for operations is to set this level corresponding to N-Hit $\ge$
-3.  Given the N-Hit threshold per PMT of 0.25 pe, the maximum allowed
+plan for operations is to set this level corresponding to N-Hit$\ge$3.
+Given the N-Hit threshold per PMT of 0.25 pe, the maximum allowed
 veto PMT noise rates at this threshold (3000 Hz), and 50 ns
 coincidence window, the expected rate of false coincidences at this
 level is $<$7$\times$10$^{-5}$Hz.  Using the average measured noise
@@ -308,18 +326,20 @@ trigger of approximately 10-to-1.
 \subsection{Amplifier discriminator board}
 \label{sec:Amp-Disc}
 %
-The amplifier discriminator board is the front end electronics board.
+The amplifier discriminator board is the front-end electronics board.
 The board provides high voltage distribution to the PMTs, signal
-amplification, and signal discrimination for the N-Hit sum. The PMT
-bias voltage is fed to each of the PMT connections through a single
-SHV connector. Since we charectarize each of the PMTs in a test setup we
-are able to choose PMTs based on the gain versus voltage characteristic.
-We group PMTs with a similar gain versus voltage characteristic onto a
-single amplifier discriminator board so that a single bias voltage can be
-used for 8 PMTs. Each PMT capacitively couples the signal onto the bias
-voltage line. On the amplifier discriminator board each channel has
-an amplifier input capacitively coupled to a PMT bias line. The schematic for the
-PMT bias scheme, along with two channels of the amplifier discriminator, is shown in Figure~\ref{fig:ampdiscsch}.
+amplification, and signal discrimination for the N-Hit sum. The
+board-wide PMT bias voltage is fed through one input SHV connector,
+from a high voltage card channel, through a voltage divider circuit to
+each of the 8 PMT connections on the amplifier discriminator board.
+PMTs with a similar operating voltages and single p.e. charges are
+grouped onto a single amplifier discriminator board, as described in
+Section~\ref{sec:pmts}, so that a single bias voltage can be used for
+8 PMTs. Each PMT capacitively couples the signal onto the bias voltage
+line, and each channel has an amplifier input capacitively coupled to
+its PMT bias line. The schematic for the PMT bias scheme, along with
+two channels of the amplifier discriminator, is shown in
+Figure~\ref{fig:ampdiscsch}.
 
 \begin{figure}[ht]
 \begin{center}
@@ -329,38 +349,43 @@ PMT bias scheme, along with two channels of the amplifier discriminator, is show
 \end{center}
 \end{figure}
 
-The HV bias components were surface mount types. Because of the
-aspect ratio of the width and length of some of the components, the
-components had to be raised slightly off of the board during the
-soldering process to ensure that flux could be cleaned from underneath
-the components. In addition, the HV components were potted with
-corona dope after assembly.
+The HV bias components are surface mount types. Because of the aspect
+ratio of the width and length of some of the components, they had to
+be raised slightly off of the board during the soldering process to
+ensure that flux could be cleaned from underneath the components. In
+addition, the HV components were potted with corona dope after
+assembly.
 
-A high bandwidth current feedback amplifier (CFA) provides the large
-gain and bandwidth needed to amplify the pulses by a factor of 10 in a
-single stage. We selected the Analog Devices AD8000 CFA to amplify
-the PMT pulses. The amplified pulses are fed out to the delay
-lines and to the on-board comparators. Due to the high gain
+To handle the relatively low target discriminator threshold of 3~mV,
+and the amplitude decrease associated with time multiplexing method we
+use, we chose to amplify the signal pulses by a factor of 10.  A high
+bandwidth current feedback amplifier (CFA) provides the large gain and
+bandwidth needed to amplify the pulses by a factor of 10 in a single
+stage, and we selected the Analog Devices AD8000 CFA. The amplified
+pulses are fed out to the delay lines which do the time-multiplexing,
+and to on-board comparators for discrimination.  Due to the high gain
 requirements, and the variations between the CFAs, all of the parts
 installed were tested beforehand and binned into parts with a similar
-DC offset. During board assembly, care was taken to ensure that all
-of the amplifiers installed on a single board had a DC offset which varied by no more than 10\%.
+DC offset.  During board assembly, care was taken to ensure that all
+of the amplifiers installed on a single board had a DC offset which
+varied by no more than 10\%.
 
 The comparator compares each channel with a programmable threshold
 voltage, common to all 8 channels on each board. The output of the
-comparator is a fast differential PECL output. These are summed with
-a differential amplifier and output using a transformer as a single
-ended signal, the "N-Hit sum" for those 8 channels.
+comparator is a fast differential PECL pulse. The comparator outputs
+from the 8 channels on each board are summed with a differential
+amplifier and output using a transformer as a single ended signal to
+produce the N-Hit sum for each board.
 
 The amplifier discriminator board has local linear power regulation.
-Each board has two +5~V supplies, one -5~V supply, and one +3~V supply.
-The CFA runs on the +5~V and -5~V supplies. The comparator runs on the
-second +5~V supply and the +3~V supply (necessary for PECL output).
-The two +5~V supplies isolate the output supply for
-the comparator in order to reduce cross talk. The regulators are fed
-by a common bipolar supply and ground nominally at $\pm$9~V. The
-nominal values for current draw are 500~mA on the positive rail and
-250~mA on the negative rail.
+Each board has two +5~V supplies, one -5~V supply, and one +3~V
+supply.  The CFA runs on the +5~V and -5~V supplies. The comparator
+runs on the second +5~V supply and the +3~V supply (necessary for PECL
+output).  The two +5~V supplies isolate the output supply for the
+comparator in order to reduce cross talk. The regulators are fed by a
+common bipolar supply and ground nominally at $\pm$9~V. The nominal
+values for current draw are 500~mA on the positive rail and 250~mA on
+the negative rail.
 
 The board is constructed with 4 copper layers and standard FR4
 substrate material, with 0.062 inch thickness. It is mounted on a piece
@@ -377,61 +402,84 @@ board is shown in Figure~\ref{fig:boards}.
 \subsection{Delay lines}
 \label{sec:Delay}
 %
+Delay lines are used to perform the time multiplexing.  Typical PMT
+signal pulses are $<$15~ns long, as discussed in
+Section~\ref{sec:subsystem_design}.  We chose 50~ns as the basic unit
+of delay in the time multiplexing in order to minimize pile-up in time
+of signals from multiple PMTs.  To handle 8 channels, the maximum
+delay required is 350~ns, which is beyond the capability of current
+active delay components.  Therefore we chose to use passive cable
+delay lines to accomplish the time multiplexing.
+
 The delay lines connect from the amplifier discriminator boards to the
-summer boards. They are designed to delay the signals between 50~ns and 350~ns.
-Since the signal pulses are expected to be short in
-comparison to the 50~ns delay window, delaying the signals and summing
-them together has the effect of time multiplexing the signals. The
-delay lines are made of different lengths of Belden 9310 cable fitted
-with male SMA connectors. The cable was chosen for its low
+summer boards. They are designed to delay the signals between 0~ns
+(for the first PMT channel of each amplifier discriminator board) and
+350~ns (for the eighth channel), in steps of 50~ns.  After delay, the
+signals from each amplifier discriminator board are summed together by
+the associated summer board, which has the effect of time multiplexing
+the signals.  
+
+The delay lines are made of different lengths of Belden 9310 cable
+fitted with male SMA connectors. The cable was chosen for its low
 attenuation, slow signal propagation speed, and small bend radius.
-There are 7 different lengths ranging form 32~ft to 224~ft, with every 32~ ft
-equating to about 50~ns of delay. These are coiled inside a metal box
-with pig tails to connect to the amplifier discriminator boards and
-the summer boards. The metal box satisfies fire protection concerns
-in the mine, as the Belden 9310 is not plenum rated. There are two
-sets of each of the seven lengths in each box. One of the signals has
-a $\sim$0~ns delay and is connected from the amplifier discriminator card to
-the summer card with a very short jumper cable. Figure~\ref{fig:multipulse}
-shows the time multiplexed ouput of 8 channels fed with a synchronous pulse.
+There are 7 different lengths ranging form 32~ft to 224~ft, with every
+32~ft corresponding to 50~ns of delay. The delay lines are coiled
+inside a metal box with pig tails to connect to the amplifier
+discriminator boards and the summer boards. The metal box satisfies
+fire protection regulations in the mine, as the Belden 9310 is not
+plenum rated. There are two sets of each of the seven lengths in each
+box.  One of the signals has a $\sim$0~ns delay and is connected from
+the amplifier discriminator card to the summer card with a very short
+jumper cable.
 
-Note that the amplitude of the pulses decreases as the amount of time delayed
-increases.  This is due to the attenuation of the longer delay line and is
-one of the complexities of time multiplexing signals in this way. Also note
-that in the event of fewer than 8 channels having a signal at the same time
-it is not possible to discern which PMT(s) generated a signal. Other effects
-such as dark counts and after pulses will also appear on the output line and
-because of the time multiplexing may constructively interfere with other PMT
-signals making it impossible to discern between real hits and these effects.
-These issues, however, do not have a large effect on the goal of the veto system which is to
-ensure that a potential WIMP dark matter event recorded in the inner detector
-volume was not caused by a cosmogenic muon. With an expected count rate of
-9.8 muons per day (TODO insert reference to introduction) it is highly unlikely that two veto events will occur
-within the same 350nS time window. In addition since it is not important to
-know exactly which PMT generated the pulse nor is it important to know
-the exact magnitude of the pulse from the PMT the added complexity from the
-delay lines will not considerably impact the veto system. Finally, because
-the threshold for asserting the veto signal will be set quite low we will
-not be affected by many PMT signals overlapping.
+Figure~\ref{fig:multipulse} shows the time multiplexed output of 8
+channels fed with a synchronous pulse of constant amplitude.  The
+amplitude of the pulses decreases by approximately 30\% from the first
+to the eighth delayed pulse.  This is due to the attenuation of the
+longer delay line.  This amplitude decrease can be calibrated out in
+the analysis of the multiplexed signals, using this synchronous
+constant input pulse measurement.
 
-After pulses from the PMTs which follow a real signal are an additional
-concern. It is conceivable that a PMT with a short delay line may fire and
-a subsequent after pulse from this PMT may be indistinguishable from or
-interfere with a pulse from another PMT attached to a longer delay line. In
-this event, while the digitized signal may appear to show an additional PMT
-signal, the N-Hit sum would still show the proper number of PMTs hit during
-the event. Additionally, such an event would not prevent the veto signal
-from being asserted and so would have no effect.
+Another complexity introduced by the time multiplexing is the
+increased probability of PMT noise pulses, such as from thermionic
+emission or afterpulsing, piling up with PMT signal pulses.  The PMT
+dark rate is required by the veto PMT selection criteria to be $<$3000
+Hz at 0.25 p.e. threshold, and therefore the probability of a noise
+pulse occuring during the full 350~ns delay window is 0.1\% per
+channel per event.  The fraction of afterpulses in the SNO R1408 PMTs
+(of which these veto PMTs are a subset) was required to be $<$1.5\% of
+the total measured charge above a threshold of 0.25 p.e., where
+afterpulses are defined as occuring at times $>$20~ns after a prompt
+single p.e.  calibration signal~\cite{ref:sno_pmt_paper}.  Therefore
+afterpulsing in these PMTs is a small effect (of order 30 Hz singles
+rate at a threshold of 0.25 p.e.).  Further, in events with
+contribution from dark noise or afterpulsing hits, the digitized time
+multiplexed signal will show the noise contributions, but the
+instantaneous N-Hit sum will show only the number of PMTs with prompt
+hits during the event. This inconsistency can be used to identify
+events with significant noise contribution.
+
+In general, the time multiplexing increases the effect of PMT noise
+pulses by extending the window over which they may occur by a factor
+of 7. However, the time multiplexing design does not significantly
+impact the goal of the veto subsystem which is to ensure that a
+potential WIMP dark matter event recorded in the inner detector volume
+was not caused by a cosmogenic muon. With an expected count rate of
+9.8 muons per day it is highly unlikely that two real veto events will
+occur within the same 350~ns time window, and given the measured noise
+rates, the probability of noise hit contributions during this window
+is tolerably low.
 
 \begin{figure}[ht]
 \begin{center}
 	\includegraphics[height=2in, keepaspectratio=true]{graphics/delaypulse_bw.jpg}
-	\caption{Oscillicope capture from the output of a summer board. Eight channels
-		pulsed with a 10~mV synchronous pulse into the amplifier discriminator board. The amplified
+	\caption{Oscilloscope capture from the output of a summer board. Eight channels
+		pulsed with a 12~mV synchronous pulse into the amplifier discriminator board. The amplified
 		signals are routed through the delay lines into the summer board. The top trace is
 		the output of the summer board. The bottom trace is the N-Hit sum output from the
 		amplifier discriminator board, used as a trigger. Horizontal scale is 50~nS per division,
-		vertical scale is 100~mV per division.
+		vertical scale is 100~mV per division. This figure illustrates the attenuation caused by the delay
+		lines which which will need to be compensated for in software. The first pulse shows an amplitude of approx 120mV which would be expected with a gain of 10 from the system.
 \label{fig:multipulse}}
 \end{center}
 \end{figure}
@@ -439,30 +487,32 @@ from being asserted and so would have no effect.
 \subsection{Summer board}
 \label{sec:Sum}
 %
-The summer board sums the analog channels after they have been
-delayed and also sums the N-Hit sums from each of the 6 cards to make
-a global N-Hit sum. The summer board has 8 inputs which are female
-SMA connectors. Each of these inputs is fed, DC coupled, into a CFA
-to provide buffering. This also provides the opportunity to fine tune
-the gain and equalize the signals after the cable delay by adjusting
-the two feedback resistors. the outputs are fed into another CFA
-configured as an analog summing node. This outputs through a series
-resistor to an female MCX connector. A short jumper cable connects
-the summer board output to the digitizer input. Like the amplifier
-discriminator board, the summer board has local power regulation.
-Each board has one +5~V supply and one -5~V supply. The regulators are
-fed by a common bipolar supply nominally at $\pm$9~V.
-The nominal values for current draw are 250~mA on the positive
-rail and 250~mA on the negative rail. A photo of the summer
-board is shown in Figure~\ref{fig:boards}, an example test pulse run
+The summer board sums the analog channels after they have been delayed
+and also sums the N-Hit sums from each of the 6 cards to make an
+instantaneous N-Hit sum across the veto. 
+
+The summer board has 8 inputs which are female SMA connectors. Each of
+these inputs is fed, DC coupled, into a CFA to provide buffering. This
+also provides the opportunity to fine tune the gain and equalize the
+signals after the cable delay by adjusting the two feedback resistors.
+The outputs are fed into another CFA configured as an analog summing
+node. This outputs through a series resistor to an female MCX
+connector. A short jumper cable connects the summer board output to
+the digitizer input.  
+
+Like the amplifier discriminator board, the summer board has local
+power regulation.  Each board has one +5~V supply and one -5~V supply.
+The regulators are fed by a common bipolar supply nominally at
+$\pm$9~V.  The nominal values for current draw are 250~mA on the
+positive rail and 250~mA on the negative rail.  A photo of the summer
+board is shown in Figure~\ref{fig:boards}, an example test pulse in
 through the summer board is shown in Figure~\ref{fig:summerpulse}.
 
 \begin{figure}[ht]
 	\begin{center}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseinput_bw.png}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseoutput_bw.png}
-		\caption{Four input signals (left) and the output signal (right) to a summer board measured with a test pulse generator.
-			The other four input channels are grounded. Horizontal scale is 10~nS per division, vertical scale is 100~mv per division.
+		\caption{Four input signals (left) and the output signal (right) to a summer board measured with a test pulse generator. The other four input channels are grounded. Horizontal scale is 10~nS per division, vertical scale is 100~mv per division.  The active input channels have an amplitude of about 200~mV as shown in the left plot.  The summer outputs the sum attenuated by a factor of 5 as shown in the right plot.
 		\label{fig:summerpulse}}
 	\end{center}
 \end{figure}
@@ -482,35 +532,41 @@ The electronics are housed in a rack which holds a crate for the
 electronics, a fan unit for cooling, a power supply unit, and all of
 the delay lines. The power supply module provides $\pm$9~V up to
 130~W. Estimated total power draw is 72~W. The power supply uses two
-discrete 9~V switching power supplies which provide +9~V, 0~V, and -9~V
-power rails running on the back of the rack. Connectors are attached
-to these rails and insert into each of the electronics boards. Each
-of the components was tested individually at MIT. Amplifier
-discriminator boards were high-pot tested and all channels were tested
-to ensure uniformity. Summer boards were similarly tested. The
-boards were assembled into a VME style crate and mounted in a rack
-together with the power supply unit, a fan unit, and the delay
-lines. An integration test was done with the MiniCLEAN electronics
-at Boston University to
-demonstrate the system running while attached to the CAEN DAQ system.
+discrete 9~V switching power supplies which provide +9~V, 0~V, and
+-9~V power rails running on the back of the rack. Connectors are
+attached to these rails and insert into each of the electronics
+boards. Each of the components was tested individually at MIT.
+Amplifier discriminator boards were high-pot tested and all channels
+were tested to ensure uniformity. Summer boards were similarly tested.
+The boards were assembled into a VME style crate and mounted in a rack
+together with the power supply unit, a fan unit, and the delay lines.
+An integration test was done with the MiniCLEAN electronics at Boston
+University to demonstrate the system running while attached to the
+CAEN DAQ system.
 
 \section{Summary}
 \label{Summary}
 %
-A full test of the electronics chain using simulated signals,
-integrated with the MiniCLEAN DAQ, demonstrated the veto
-system working properly. We were able to see simulated events pushed
-into the system and see the N-Hit trigger signal increase
-proportionally to the number of PMTs which were hit. We could observe
-the output signals on the time multiplexed outputs from the summer
-boards (Figure~\ref{fig:multipulse}).
-Once operational, the full system will
-multiplex 48 PMT signals into 6 digitizer channels and provide a
-system wide N-Hit sum. The system wide N-Hit will provide the veto
-trigger to the MiniCLEAN DAQ. The system is now at SNOLAB ready for
-implementation in the experiment.
+An active muon veto detector has been designed, simulated, built, and
+tested for the MiniCLEAN experiment.  The PMT and cable assemblies
+have been tested to verify the single p.e. characteristics, the
+operating voltages, and water-tight operation in similar conditions to
+the MiniCLEAN veto tank.  A mechanical integration test was
+successully performed, verifying the hardware integrity and assembly
+procedure.  A full test of the electronics chain using simulated
+signals, integrated with the MiniCLEAN DAQ, demonstrated the veto
+system electronics working properly. We were able to observe the N-Hit
+trigger signal increase proportionally to the number of PMTs which
+were hit, in the full electronics and DAQ system operated with
+simulated pulse input. We also observed the correct output signals on
+the time multiplexed outputs from the summer boards
+(Figure~\ref{fig:multipulse}).  When operational on site at SNOLAB,
+the full system will multiplex 48 PMT signals into 6 digitizer
+channels and provide a system wide instantaneous N-Hit sum. The system
+wide N-Hit will provide the veto trigger to the MiniCLEAN DAQ. The
+system is now at SNOLAB ready for implementation in the experiment.
 
-\acknowledgments
+%\acknowledgments
 The authors would like to acknowlege support from NSF grant PHY-0970047 and the MIT Bates Research and Engineering Center.
 
 
