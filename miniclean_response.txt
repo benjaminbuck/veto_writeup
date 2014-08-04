@@ -1,6 +1,6 @@
 Thank you very much for the review.  What follows is a point by point response to each of the issues raised by Reviewer #1:
 
-The reveiwer had 6 major issues with the manuscript which we address in the revision.
+The reviewer had 6 major issues with the manuscript which we address in the revision.
 
 Issue 1) The authors describe a how they delay the analog signals by different amounts and sum them in order to reduce the number of digitizing channels required.  The authors should indicate what the rational is for this design choice (e.g. is it driven by available funding) and what the potential downsides are of this choice.  The parameters specified for the required delays are based on the time spread of photons obtained from simulations.  The question that is not addressed is how for example after-pulsing in the PMTs and/or dark counts in the individual PMT channels increases the difficulty to use the summed delayed signals to determine the individual PMT responses.
 
@@ -30,7 +30,7 @@ pulse occuring during the full 350~ns delay window is 0.1\% per
 channel per event.  The fraction of afterpulses in the SNO R1408 PMTs
 (of which these veto PMTs are a subset) was required to be $<$1.5\% of
 the total measured charge above a threshold of 0.25 p.e., where
-afterpulses are defined as occuring at times$\gt$20~ns after a prompt
+afterpulses are defined as occurring at times$\gt$20~ns after a prompt
 single p.e.  calibration signal~\cite{ref:sno_pmt_paper}.  Therefore
 afterpulsing in these PMTs is a small effect (of order 30 Hz singles
 rate at a threshold of 0.25 p.e.)."
