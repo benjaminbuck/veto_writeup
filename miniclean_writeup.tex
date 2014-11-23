@@ -66,7 +66,7 @@ From a simulation of the cosmogenic muon flux, using the Sudbury Neutrino Observ
 parametrization from~\cite{ref:mei_and_hime}, the expected total muon flux
 through the MiniCLEAN veto tank water is 9.8 muons/day. 48 PMTs are used to
 detect Cherenkov light produced by muons transiting the water, and trigger a
-veto signal. The veto was designed to tag 99.9\% of cosmic muons, and GEANT4
+veto signal. The veto is designed to tag 99.9\% of cosmic muons, and GEANT4
 ~\cite{ref:geant4} simulations were done to determine the number and placement
 of PMTs inside the water volume. 
 
@@ -120,7 +120,7 @@ tank volume and typically depositing $<$10 MeV in the water.
 
 The minimum thickness of the water, 1.5~$m$ between cavern air and the
 outer vessel of the cryostat containing the liquid argon volume of the
-dark matter detector, was chosen to attenuate the cosmogenic
+dark matter detector, is chosen to attenuate the cosmogenic
 muon-induced gamma and neutron flux.  The dangerous category of
 cosmogenic backgrounds comes from muons which are not tagged by the
 veto yet still produce neutrons or gammas which scatter in the liquid
@@ -160,13 +160,13 @@ in a PMT test stand at Los Alamos National Laboratory, using a CAEN
 V1720 digitizer with the MiniCLEAN DAQ software, DCDAQ, for data
 acquisition \cite{ref:gastler_thesis}. PMTs were conditioned at 2100~V
 for 12 hours. Next, a single photoelectron gain measurement as a
-function of bias voltage was made using a blue LED flashed at low
-intensity, such that PMT occupancy was several percent. Final gain and
+function of bias voltage is made using a blue LED flashed at low
+intensity, such that PMT occupancy is several percent. Final gain and
 dark rate measurements were made at the PMT operating voltage in a
 similar test stand at MIT, and 48 PMTs plus 5 spares were selected for
 use in the veto. 
 
-The selection criterion was chosen to minimize dark rate, and thereby
+The selection criterion is chosen to minimize dark rate, and thereby
 minimize the rate of false veto triggers (discussed in Section
 \ref{sec:electronics_design}).  We required the rate of pulses with
 amplitude $>$3~mV to be less than 3000~Hz in the absence of a light
@@ -283,7 +283,7 @@ Section~\ref{sec:Sum}. The MiniCLEAN CAEN DAQ is described in detail
 in~\cite{ref:gastler_thesis}.
 
 The rationale for multiplexing the veto PMT signals is the relatively
-high cost-per-channel of the digitizing electronics.  So, the veto
+high cost-per-channel of the digitizing electronics.  The veto
 electronics time multiplex 8 PMT channels onto a single digitizer
 channel. For the veto, 7 digitizer channels were available. We chose
 to use 6 of them to digitize the time-mulitplexed response from the
@@ -293,26 +293,30 @@ loss from multiplexing since the instantaneous N-Hit sum signal can be
 used to verify that there are no hits in the veto volume when a
 candidate WIMP dark matter event is recorded, and the time-multiplexed
 signals can be used to study muon signals in the veto in greater
-detail to validate the cosmogenic background prediction from simulation.
+detail to validate the cosmogenic background prediction from simulations.
 
-The instantaneous N-Hit sum signal across the veto is sent to the
-MiniCLEAN trigger module forming the veto trigger signal.  This module
-is described in detail in~\cite{ref:gastler_thesis}; briefly, it
-accepts analog trigger signals from a variety of inputs and fans them
-out to the digitizer boards to cause acquisition of a waveform from
-all channels, forming an event.  Given the low expected rate of muons
-traversing the veto, the veto trigger signal is used to cause data
-acquisition across the full detector rather than to prevent the DAQ
-from recording data when a veto signal is present.  The veto trigger
-level is adjustable, with a threshold voltage set in hardware.  The
-plan for operations is to set this level corresponding to N-Hit$\ge$3.
-Given the N-Hit threshold per PMT of 0.25 pe, the maximum allowed
-veto PMT noise rates at this threshold (3000 Hz), and 50 ns
-coincidence window, the expected rate of false coincidences at this
-level is $<$7$\times$10$^{-5}$Hz.  Using the average measured noise
-rate of the selected PMTs (1800 Hz), this false coincidence rate drops
-by a factor of 5, giving an expected signal-to-noise ratio in the veto
-trigger of approximately 10-to-1.
+The instantaneous N-Hit sum signal across the veto is sent to a
+discriminator module, which generates a NIM output pulse.  The N-Hit
+threshold for the veto trigger is determined by the discriminator
+level setting.  The NIM output pulse is sent to the MiniCLEAN trigger
+module to form the veto trigger signal.  This module is described in
+detail in~\cite{ref:gastler_thesis}.  Briefly, it accepts analog
+trigger signals from a variety of inputs, constructs a trigger mask to
+record which triggers are active at each timestamp, and fans the master
+trigger signal out to the digitizer boards to cause acquisition of a
+waveform from all channels, forming an event.  Given the low expected
+rate of muons traversing the veto, the veto trigger signal is used to
+cause data acquisition across the full detector rather than to prevent
+the DAQ from recording data when a veto signal is present.  The veto
+trigger level is adjustable, with a threshold voltage set in hardware.
+The plan for operations is to set this level corresponding to
+N-Hit$\ge$3.  Given the N-Hit threshold per PMT of 0.25 pe, the
+maximum allowed veto PMT noise rates at this threshold (3000 Hz), and
+50 ns coincidence window, the expected rate of false coincidences at
+this level is $<$7$\times$10$^{-5}$Hz.  Using the average measured
+noise rate of the selected PMTs (1800 Hz), this false coincidence rate
+drops by a factor of 5, giving an expected signal-to-noise ratio in
+the veto trigger of approximately 10-to-1.
 
 
 \begin{figure}[ht]
@@ -366,7 +370,7 @@ pulses are fed out to the delay lines which do the time-multiplexing,
 and to on-board comparators for discrimination.  Due to the high gain
 requirements, and the variations between the CFAs, all of the parts
 installed were tested beforehand and binned into parts with a similar
-DC offset.  During board assembly, care was taken to ensure that all
+DC offset.  During board assembly, care is taken to ensure that all
 of the amplifiers installed on a single board had a DC offset which
 varied by no more than 10\%.
 
@@ -420,7 +424,7 @@ the associated summer board, which has the effect of time multiplexing
 the signals.  
 
 The delay lines are made of different lengths of Belden 9310 cable
-fitted with male SMA connectors. The cable was chosen for its low
+fitted with male SMA connectors. The cable is chosen for its low
 attenuation, slow signal propagation speed, and small bend radius.
 There are 7 different lengths ranging form 32~ft to 224~ft, with every
 32~ft corresponding to 50~ns of delay. The delay lines are coiled
@@ -444,27 +448,27 @@ Another complexity introduced by the time multiplexing is the
 increased probability of PMT noise pulses, such as from thermionic
 emission or afterpulsing, piling up with PMT signal pulses.  The PMT
 dark rate is required by the veto PMT selection criteria to be $<$3000
-Hz at 0.25 p.e. threshold, and therefore the probability of a noise
+Hz at 0.25 p.e. threshold.  Therefore, the probability of a noise
 pulse occurring during the full 350~ns delay window is 0.1\% per
 channel per event.  The fraction of afterpulses in the SNO R1408 PMTs
-(of which these veto PMTs are a subset) was required to be $<$1.5\% of
-the total measured charge above a threshold of 0.25 p.e., where
+(of which these veto PMTs are a subset) is required to be $<$1.5\% of
+the total measured charge above a threshold of 0.25 p.e.  Here
 afterpulses are defined as occurring at times $>$20~ns after a prompt
-single p.e.  calibration signal~\cite{ref:sno_pmt_paper}.  Therefore
-afterpulsing in these PMTs is a small effect (of order 30 Hz singles
-rate at a threshold of 0.25 p.e.).  Further, in events with
-contribution from dark noise or afterpulsing hits, the digitized time
-multiplexed signal will show the noise contributions, but the
-instantaneous N-Hit sum will show only the number of PMTs with prompt
-hits during the event. This inconsistency can be used to identify
-events with significant noise contribution.
+single p.e. calibration signal~\cite{ref:sno_pmt_paper}.  Therefore
+afterpulsing in these PMTs is a small effect, of order 30 Hz singles
+rate at a threshold of 0.25 p.e.  In events with contributions from
+dark noise or afterpulsing hits, the digitized time-multiplexed signal
+will show the noise contributions, but the instantaneous N-Hit sum
+will show only the number of PMTs with prompt hits during the event.
+This inconsistency can be used to identify events with significant
+noise contributions.
 
 In general, the time multiplexing increases the effect of PMT noise
 pulses by extending the window over which they may occur by a factor
 of 7. However, the time multiplexing design does not significantly
 impact the goal of the veto subsystem which is to ensure that a
 potential WIMP dark matter event recorded in the inner detector volume
-was not caused by a cosmogenic muon. With an expected count rate of
+is not caused by a cosmogenic muon. With an expected count rate of
 9.8 muons per day it is highly unlikely that two real veto events will
 occur within the same 350~ns time window, and given the measured noise
 rates, the probability of noise hit contributions during this window
@@ -477,9 +481,9 @@ is tolerably low.
 		pulsed with a 12~mV synchronous pulse into the amplifier discriminator board. The amplified
 		signals are routed through the delay lines into the summer board. The top trace is
 		the output of the summer board. The bottom trace is the N-Hit sum output from the
-		amplifier discriminator board, used as a trigger. Horizontal scale is 50~nS per division,
+		amplifier discriminator board, used as a trigger. The horizontal scale is 50~ns per division,
 		vertical scale is 100~mV per division. This figure illustrates the attenuation caused by the delay
-		lines which which will need to be compensated for in software. The first pulse shows an amplitude of approx 120mV which would be expected with a gain of 10 from the system.
+		lines which which will need to be compensated for in software. The first pulse shows an amplitude of approx 120~mV which would be expected with a gain of 10 from the system.
 \label{fig:multipulse}}
 \end{center}
 \end{figure}
@@ -512,7 +516,7 @@ through the summer board is shown in Figure~\ref{fig:summerpulse}.
 	\begin{center}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseinput_bw.png}
 		\includegraphics[height=2in, keepaspectratio=true]{graphics/sumpulseoutput_bw.png}
-		\caption{Four input signals (left) and the output signal (right) to a summer board measured with a test pulse generator. The other four input channels are grounded. Horizontal scale is 10~nS per division, vertical scale is 100~mv per division.  The active input channels have an amplitude of about 200~mV as shown in the left plot.  The summer outputs the sum attenuated by a factor of 5 as shown in the right plot.
+		\caption{Four input signals (left) and the output signal (right) to a summer board measured with a test pulse generator. The other four input channels are grounded. Horizontal scale is 10~ns per division, vertical scale is 100~mV per division.  The active input channels have an amplitude of approximately 200~mV as shown in the left plot.  The summer outputs the sum attenuated by a factor of 5 as shown in the right plot.
 		\label{fig:summerpulse}}
 	\end{center}
 \end{figure}
