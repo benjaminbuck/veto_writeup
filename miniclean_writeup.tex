@@ -143,11 +143,11 @@ the dark matter region of interest, 20-100~keVee, is $<$0.1 per year.
 %
 Sixty-six Hamamatsu R1408 PMTs were made available from SNO for use in the
 MiniCLEAN veto. These PMTs were qualified to find the optimum
-operating voltage, single PE charge mean and width, and noise rate in
+operating voltage, single p.e. charge mean and width, and noise rate in
 tests done for the Sudbury Neutrino Observatory
 (SNO)~\cite{ref:sno_pmt_paper}.  Operating voltages were chosen for an
 anode gain of 1$\times$10$^7$.  The 66 PMTs were re-tested for
-MiniCLEAN to verify the single PE charges and noise rates, following
+MiniCLEAN to verify the single p.e. charges and noise rates, following
 the SNO PMT testing analysis procedure.  In all cases except one
 broken PMT the test results were consistent with the SNO measurements.
 At the operating voltage a typical single p.e. pulse charge is 1~pC,
@@ -286,7 +286,7 @@ The rationale for multiplexing the veto PMT signals is the relatively
 high cost-per-channel of the digitizing electronics.  The veto
 electronics time multiplex 8 PMT channels onto a single digitizer
 channel. For the veto, 7 digitizer channels were available. We use
-to use 6 of them to digitize the time-mulitplexed response from the
+6 of them to digitize the time-mulitplexed response from the
 PMTs and use the 7th to digitize the instantaneous N-Hit sum signal
 across the veto channels.  This approach minimizes the information
 loss from multiplexing since the instantaneous N-Hit sum signal can be
@@ -310,7 +310,7 @@ cause data acquisition across the full detector rather than to prevent
 the DAQ from recording data when a veto signal is present.  The veto
 trigger level is adjustable, with a threshold voltage set in hardware.
 The plan for operations is to set this level corresponding to
-N-Hit$\ge$3.  Given the N-Hit threshold per PMT of 0.25 pe, the
+N-Hit$\ge$3.  Given the N-Hit threshold per PMT of 0.25 p.e., the
 maximum allowed veto PMT noise rates at this threshold (3000 Hz), and
 50 ns coincidence window, the expected rate of false coincidences at
 this level is $<$7$\times$10$^{-5}$~Hz.  Using the average measured
@@ -483,7 +483,7 @@ is tolerably low.
 		the output of the summer board. The bottom trace is the N-Hit sum output from the
 		amplifier discriminator board, used as a trigger. The horizontal scale is 50~ns per division,
 		the vertical scale is 100~mV per division. This figure illustrates the attenuation caused by the delay
-		lines which which will need to be compensated for in software. The first pulse shows an amplitude of approx 120~mV which would be expected with a gain of 10 from the system.
+		lines which will need to be compensated for in software. The first pulse shows an amplitude of approx 120~mV which would be expected with a gain of 10 from the system.
 \label{fig:multipulse}}
 \end{center}
 \end{figure}
